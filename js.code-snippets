@@ -1,12 +1,126 @@
 {
-	// ===============================================
-	// [ 1 ] ---------- Console.log ------------------
-	// ===============================================
-	"Console Log": {
+	// js-log — styled console.log
+	"Console Log (styled)": {
 		"prefix": "js-log",
 		"body": [
-			"console.log(\"%c ${1:Message}\", \"color: ${3:red}; font-size: 24px; text-shadow: 2px 2px ${4:black};\", ${2:Data});"
+			"console.log(\"%c ${1:Message}\", \"color: ${2:red}; font-size: 24px; text-shadow: 2px 2px ${3:black};\", ${4:data});"
 		],
-		"description": "Console Log"
+		"description": "Console log with CSS styling and a data value"
+	},
+	// js-fn — function declaration
+	"Function": {
+		"prefix": "js-fn",
+		"body": [
+			"function ${1:fnName}(${2:params}) {",
+			"  ${0}",
+			"}"
+		],
+		"description": "Function declaration"
+	},
+	// js-arrow — arrow function
+	"Arrow Function": {
+		"prefix": "js-arrow",
+		"body": [
+			"const ${1:fnName} = (${2:params}) => {",
+			"  ${0}",
+			"};"
+		],
+		"description": "Arrow function"
+	},
+	// js-afn — async function
+	"Async Function": {
+		"prefix": "js-afn",
+		"body": [
+			"async function ${1:fnName}(${2:params}) {",
+			"  ${0}",
+			"}"
+		],
+		"description": "Async function"
+	},
+	// js-foreach
+	"forEach Loop": {
+		"prefix": "js-foreach",
+		"body": [
+			"${1:items}.forEach((${2:item}) => {",
+			"  ${0}",
+			"});"
+		],
+		"description": "Array forEach loop"
+	},
+	// js-map
+	"Map": {
+		"prefix": "js-map",
+		"body": [
+			"const ${1:result} = ${2:items}.map((${3:item}) => ${4:item});"
+		],
+		"description": "Array map"
+	},
+	// js-filter
+	"Filter": {
+		"prefix": "js-filter",
+		"body": [
+			"const ${1:result} = ${2:items}.filter((${3:item}) => ${4:condition});"
+		],
+		"description": "Array filter"
+	},
+	// js-reduce
+	"Reduce": {
+		"prefix": "js-reduce",
+		"body": [
+			"const ${1:result} = ${2:items}.reduce((${3:acc}, ${4:item}) => ${5:acc}, ${6:initialValue});"
+		],
+		"description": "Array reduce"
+	},
+	// js-fetch — fetch with async/await
+	"Fetch (async/await)": {
+		"prefix": "js-fetch",
+		"body": [
+			"async function ${1:fetchData}() {",
+			"  const response = await fetch(\"${2:https://api.example.com/resource}\");",
+			"  if (!response.ok) {",
+			"    throw new Error(`Request failed: ${response.status}`);",
+			"  }",
+			"  return await response.json();",
+			"}"
+		],
+		"description": "Fetch with async/await and error handling"
+	},
+	// js-event — event listener
+	"Event Listener": {
+		"prefix": "js-event",
+		"body": [
+			"${1:element}.addEventListener(\"${2:click}\", (${3:event}) => {",
+			"  ${0}",
+			"});"
+		],
+		"description": "Attach an event listener"
+	},
+	// js-timeout
+	"setTimeout": {
+		"prefix": "js-timeout",
+		"body": [
+			"setTimeout(() => {",
+			"  ${0}",
+			"}, ${1:1000});"
+		],
+		"description": "Run code after a delay"
+	},
+	// js-interval
+	"setInterval": {
+		"prefix": "js-interval",
+		"body": [
+			"setInterval(() => {",
+			"  ${0}",
+			"}, ${1:1000});"
+		],
+		"description": "Run code on an interval"
+	},
+	// js-destructure
+	"Destructure Object": {
+		"prefix": "js-destructure",
+		"body": [
+			"const { ${1:prop} } = ${2:object};"
+		],
+		"description": "Destructure properties from an object"
 	}
 }
