@@ -1,0 +1,42 @@
+{
+	// regex-email
+	"Email": {
+		"prefix": "regex-email",
+		"body": [
+			"^[\\w.+-]+@[\\w-]+\\.[\\w.-]+\\$"
+		],
+		"description": "Email address pattern"
+	},
+	// regex-slug
+	"Slug": {
+		"prefix": "regex-slug",
+		"body": [
+			"^[a-z0-9]+(?:-[a-z0-9]+)*\\$"
+		],
+		"description": "URL slug (lowercase, hyphen-separated)"
+	},
+	// regex-uuid
+	"UUID": {
+		"prefix": "regex-uuid",
+		"body": [
+			"^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\\$"
+		],
+		"description": "UUID v1-v5 pattern"
+	},
+	// regex-ipv4
+	"IPv4": {
+		"prefix": "regex-ipv4",
+		"body": [
+			"^(?:(?:25[0-5]|2[0-4]\\d|1?\\d?\\d)\\.){3}(?:25[0-5]|2[0-4]\\d|1?\\d?\\d)\\$"
+		],
+		"description": "IPv4 address pattern"
+	},
+	// regex-hex — hex color
+	"Hex Color": {
+		"prefix": "regex-hex",
+		"body": [
+			"^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})\\$"
+		],
+		"description": "Hex color code (#rgb or #rrggbb)"
+	}
+}
