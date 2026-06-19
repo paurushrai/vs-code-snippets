@@ -1,4 +1,4 @@
-# vs-snippets-manager
+# vs-code-snippets
 
 This repository contains the code snippet files from vc-code
 
