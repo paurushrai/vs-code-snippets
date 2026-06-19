@@ -1,0 +1,84 @@
+{
+	// md-readme — project README scaffold
+	"README Scaffold": {
+		"prefix": "md-readme",
+		"scope": "markdown",
+		"body": [
+			"# ${1:Project Name}",
+			"",
+			"${2:One-line description.}",
+			"",
+			"## Getting started",
+			"",
+			"```bash",
+			"${3:npm install}",
+			"${4:npm run dev}",
+			"```",
+			"",
+			"## Usage",
+			"",
+			"${5:How to use it.}",
+			"",
+			"## License",
+			"",
+			"[${6:MIT}](LICENSE)"
+		],
+		"description": "Project README skeleton"
+	},
+	// md-pr — pull request template (what/why/how-to-test)
+	"Pull Request Template": {
+		"prefix": "md-pr",
+		"scope": "markdown",
+		"body": [
+			"## What",
+			"",
+			"${1:What this change does.}",
+			"",
+			"## Why",
+			"",
+			"${2:Why it is needed.}",
+			"",
+			"## How to test",
+			"",
+			"${3:Steps to verify.}"
+		],
+		"description": "PR description: what / why / how to test"
+	},
+	// md-table
+	"Table": {
+		"prefix": "md-table",
+		"scope": "markdown",
+		"body": [
+			"| ${1:Column A} | ${2:Column B} |",
+			"| --- | --- |",
+			"| ${3:a1} | ${4:b1} |",
+			"| ${5:a2} | ${6:b2} |"
+		],
+		"description": "Markdown table"
+	},
+	// md-code — fenced code block
+	"Code Block": {
+		"prefix": "md-code",
+		"scope": "markdown",
+		"body": [
+			"```${1:ts}",
+			"${0}",
+			"```"
+		],
+		"description": "Fenced code block"
+	},
+	// md-details — collapsible section
+	"Collapsible": {
+		"prefix": "md-details",
+		"scope": "markdown",
+		"body": [
+			"<details>",
+			"<summary>${1:Summary}</summary>",
+			"",
+			"${2:Hidden content}",
+			"",
+			"</details>"
+		],
+		"description": "Collapsible details/summary block"
+	}
+}
