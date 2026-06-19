@@ -1,6 +1,6 @@
 # vs-code-snippets
 
-A personal [VS Code snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets) library for fast full-stack development — **166 snippets** spanning frontend (React, Vue, Astro, TS, JS, HTML, CSS), backend & data (Node/Next.js, SQL, Prisma/Drizzle/Mongo, Zod, Python, Rust), and DevOps tooling (Docker, GitHub Actions, Bash, testing, Markdown, dotfiles, regex).
+A personal [VS Code snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets) library for fast full-stack development — **185 snippets** spanning frontend (React, Vue, Astro, TS, JS, HTML, CSS, Tailwind), backend & data (Node/Next.js, SQL, Prisma/Drizzle/Mongo, Zod, Python, Rust), and DevOps tooling (Docker, GitHub Actions, Bash, testing, Markdown, dotfiles, regex).
 
 ## The one rule
 
@@ -10,7 +10,7 @@ Every trigger follows the same shape, so you can **derive it instead of memorizi
 <lang>-<thing you already call it>
 ```
 
-- **`<lang>`** is the language/tool: `react` `vue` `astro` `ts` `js` `html` `css` `node` `sql` `db` `zod` `py` `rust` `docker` `yml` `sh` `test` `md` `regex`. Type it first and IntelliSense shows the whole family.
+- **`<lang>`** is the language/tool: `react` `vue` `astro` `ts` `js` `html` `css` `tw` `node` `sql` `db` `zod` `py` `rust` `docker` `yml` `sh` `test` `md` `regex`. Type it first and IntelliSense shows the whole family.
 - **`<thing>`** is the real name you already use — the API (`react-usestate`, `vue-computed`), the tag (`html-table`), the property/at-rule (`css-grid`, `css-keyframes`), the keyword (`sql-select`, `rust-struct`), or a shared concept word.
 
 Shared concept words mean the **same thing in every language**, so once you know one you know them all:
@@ -29,8 +29,10 @@ After typing a trigger, press <kbd>Tab</kbd> to jump between the placeholders.
 
 ### Global vs. scoped
 
-- **Frontend files** (`react` `vue` `astro` `ts` `js` `html` `css`) and a few cross-cutting ones (`regex`, `dotfiles`) are **global** — they appear everywhere. That's deliberate: Astro and Vue single-file components mix TS + HTML + CSS in one file, so you want those families available together.
+- **Frontend files** (`react` `vue` `astro` `ts` `js` `html` `css` `tw`) and a few cross-cutting ones (`regex`, `dotfiles`) are **global** — they appear everywhere. That's deliberate: Astro and Vue single-file components mix TS + HTML + CSS in one file, so you want those families available together.
 - **Backend, data, and DevOps files** (`node` `sql` `db` `zod` `py` `rust` `docker` `yml` `sh` `test` `md`) are **`scope`-restricted** to their language, so `sql-`/`py-`/`go-` suggestions never pollute autocomplete in unrelated files.
+
+> **Tailwind note:** `tw-*` snippets expand to bare class strings (e.g. `flex items-center justify-center`) so they drop into any `class`/`className`/`@apply`. Inside a `class="..."` attribute you may need <kbd>Ctrl</kbd>+<kbd>Space</kbd> to surface them past Tailwind IntelliSense.
 
 ## Usage
 
@@ -205,6 +207,33 @@ These are global (user-level) snippet files, so they work in every project:
 | `css-transition` | CSS transition shorthand |
 | `css-keyframes` | Keyframes animation block |
 | `css-clamp` | Fluid font-size using clamp() |
+
+</details>
+
+<details>
+<summary><strong>tailwind</strong> &mdash; <code>tailwind.code-snippets</code> (19) · _global_</summary>
+
+| Trigger | Inserts |
+| --- | --- |
+| `tw-center` | Center children horizontally and vertically with flex |
+| `tw-center-abs` | Center absolutely within a relative parent |
+| `tw-stack` | Vertical flex column with gap |
+| `tw-row` | Horizontal flex row, vertically centered, with gap |
+| `tw-between` | Push children apart with justify-between |
+| `tw-grid` | Responsive grid: 1 / 2 / N columns |
+| `tw-container` | Centered max-width container with responsive padding |
+| `tw-section` | Vertical section padding |
+| `tw-card` | Card surface with border, padding and shadow |
+| `tw-btn` | Primary button with hover, focus-ring and disabled states |
+| `tw-input` | Text input with focus ring |
+| `tw-badge` | Pill-shaped badge / tag |
+| `tw-hero` | Full-height centered hero container |
+| `tw-aspect` | Aspect-ratio media container |
+| `tw-truncate` | Truncate overflowing text with an ellipsis |
+| `tw-clamp` | Clamp text to N lines |
+| `tw-skeleton` | Animated loading skeleton bar |
+| `tw-sticky` | Sticky, blurred top header bar |
+| `tw-overlay` | Full-screen modal backdrop, centered content |
 
 </details>
 
