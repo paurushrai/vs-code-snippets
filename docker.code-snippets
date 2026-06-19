@@ -1,0 +1,62 @@
+{
+	// docker-node — multi-stage Node Dockerfile
+	"Dockerfile (Node multi-stage)": {
+		"prefix": "docker-node",
+		"scope": "dockerfile",
+		"body": [
+			"# syntax=docker/dockerfile:1",
+			"FROM node:${1:20}-alpine AS deps",
+			"WORKDIR /app",
+			"COPY package*.json ./",
+			"RUN npm ci",
+			"",
+			"FROM node:${1:20}-alpine AS build",
+			"WORKDIR /app",
+			"COPY --from=deps /app/node_modules ./node_modules",
+			"COPY . .",
+			"RUN npm run build",
+			"",
+			"FROM node:${1:20}-alpine AS runner",
+			"WORKDIR /app",
+			"ENV NODE_ENV=production",
+			"COPY --from=build /app ./",
+			"EXPOSE ${2:3000}",
+			"CMD [\"npm\", \"start\"]"
+		],
+		"description": "Multi-stage Node Dockerfile (deps/build/runner)"
+	},
+	// docker-compose — service definition
+	"Docker Compose Service": {
+		"prefix": "docker-compose",
+		"scope": "yaml,dockercompose",
+		"body": [
+			"services:",
+			"  ${1:app}:",
+			"    build: .",
+			"    ports:",
+			"      - \"${2:3000}:${2:3000}\"",
+			"    environment:",
+			"      - NODE_ENV=${3:production}",
+			"    depends_on:",
+			"      - ${4:db}"
+		],
+		"description": "Docker Compose service block"
+	},
+	// docker-ignore — .dockerignore
+	"Dockerignore": {
+		"prefix": "docker-ignore",
+		"body": [
+			"node_modules",
+			"npm-debug.log",
+			".git",
+			".gitignore",
+			".env*",
+			"dist",
+			"build",
+			".next",
+			"coverage",
+			"*.md"
+		],
+		"description": ".dockerignore contents"
+	}
+}
