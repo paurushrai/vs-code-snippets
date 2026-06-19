@@ -1,0 +1,62 @@
+{
+	// gitignore-node — Node .gitignore
+	"Gitignore (Node)": {
+		"prefix": "gitignore-node",
+		"body": [
+			"# dependencies",
+			"node_modules/",
+			"",
+			"# build output",
+			"dist/",
+			"build/",
+			".next/",
+			"out/",
+			"",
+			"# env & secrets",
+			".env",
+			".env.*",
+			"!.env.example",
+			"",
+			"# logs & misc",
+			"*.log",
+			"coverage/",
+			".DS_Store"
+		],
+		"description": "Node project .gitignore"
+	},
+	// env-example — .env.example template
+	"Env Example": {
+		"prefix": "env-example",
+		"body": [
+			"# App",
+			"NODE_ENV=development",
+			"PORT=${1:3000}",
+			"",
+			"# Database",
+			"DATABASE_URL=${2:postgres://user:pass@localhost:5432/db}",
+			"",
+			"# Auth",
+			"${3:AUTH_SECRET}="
+		],
+		"description": ".env.example template (no real values)"
+	},
+	// editorconfig — .editorconfig
+	"EditorConfig": {
+		"prefix": "editorconfig",
+		"body": [
+			"root = true",
+			"",
+			"[*]",
+			"indent_style = ${1:space}",
+			"indent_size = ${2:2}",
+			"end_of_line = lf",
+			"charset = utf-8",
+			"trim_trailing_whitespace = true",
+			"insert_final_newline = true",
+			"",
+			"[*.md]",
+			"trim_trailing_whitespace = false"
+		],
+		"description": ".editorconfig defaults"
+	}
+}
