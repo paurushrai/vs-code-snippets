@@ -1,180 +1,187 @@
 {
-  // ===============================================================
-  // [ 1 ] ---- Basic Vue Component Starter ---- *TAKEN FROM PROJECT
-  // ===============================================================
-  "basic template for vue component": {
-    "prefix": "vue-comp-raw",
-    "body": [
-      "<script setup>",
-      "  ${3:}",
-      "</script>",
-      "",
-      "<template>",
-      "  ${1:}",
-      "</template>",
-      "",
-      "<style scoped>",
-      "  ${2:}",
-      "</style>"
-    ],
-    "description": "basic template for vue component"
-  },
-  // ===================================================================
-  // [ 2 ] ---- Vue Component with Props ---- *TAKEN FROM GITHUB COPILOT
-  // ===================================================================
-  "basic template for vue component with props": {
-    "prefix": "vue-comp-props",
-    "body": [
-      "import { defineProps } from 'vue'",
-      "",
-      "const props = defineProps({",
-      "  prop1: {",
-      "    type: String,",
-      "    required: true",
-      "  },",
-      "})"
-    ],
-    "description": "basic template for vue component with props"
-  },
-  // =====================================================================================
-  // [ 3 ] ---- Vue Component Starter with props and emits ---- *TAKEN FROM GITHUB COPILOT
-  // =====================================================================================
-  "basic template for vue component with props and emits": {
-    "prefix": "vue-comp-props-emits",
-    "body": [
-      "import { defineProps, defineEmits } from 'vue'",
-      "",
-      "const props = defineProps({",
-      "  prop1: {",
-      "    type: String,",
-      "    required: true",
-      "  },",
-      "  prop2: {",
-      "    type: Number,",
-      "    default: 0",
-      "  }",
-      "})",
-      "",
-      "const emits = defineEmits([",
-      "  'event1',",
-      "  'event2'",
-      "])"
-    ],
-    "description": "basic template for vue component with props and emits"
-  },
-  // ==================================================================================
-  // [ 4 ] ---- V-If ( Conditional Rendering ) ---- *TAKEN FROM GITHUB COPILOT + edited
-  // ==================================================================================
-  "conditional rendering": {
-    "prefix": "vue-if",
-    "body": [
-      "<div id=\"${1:app}\" class=\"${2:class-name}\">",
-      "  <p v-if=\"${3:condition}\">${4:This is visible}</p>",
-      "  <p v-else>${4:This is hidden}</p>",
-      "</div>"
-    ],
-    "description": "conditional rendering"
-  },
-  // ===============================================
-  // [ 5 ] ---- Vue-Else-If ---- *TAKEN FROM PROJECT
-  // ===============================================
-  "Vue else if": {
-    "prefix": "vue-else-if",
-    "body": [
-      "<div v-else-if=\"${1:slice.component == 'ContentPairsRepeater'}\">",
-      "  ${1:<imgSlider :sliderCont=\"slice.bricks\" />}",
-      "</div>"
-    ],
-    "description": "Vue else if"
-  },
-  // =========================================================
-  // [ 6 ] ---- Vue-If-Else-If ---- *TAKEN FROM GITHUB COPILOT
-  // =========================================================
-  "conditional rendering with v-else-if": {
-    "prefix": "vue-if-else-if",
-    "body": [
-      "<div id=\"${1:app}\" class=\"${2:class-name}\">",
-      "  <p v-if=\"${3:condition}\">${4:This is visible}</p>",
-      "  <p v-else-if=\"${5:condition}\">$This is also visible</p>",
-      "  <p v-else>This is hidden</p>",
-      "</div>"
-    ],
-    "description": "conditional rendering with v-else-if"
-  },
-  // =======================================================================================
-  // [ 7 ] ---- V-Show ( Conditional rendering with V-Show ) ---- *TAKEN FROM GITHUB COPILOT
-  // =======================================================================================
-  "conditional rendering with v-show": {
-    "prefix": "vue-show",
-    "body": [
-      "<div id=\"app\">",
-      "  <p v-show=\"showMessage\">This is visible</p>",
-      "  <p v-show=\"showMessage2\">This is also visible</p>",
-      "  <p v-show=\"showMessage3\">This is also visible</p>",
-      "</div>"
-    ],
-    "description": "conditional rendering with v-show"
-  },
-  // =============================================================
-  // [ 8 ] ---- V-for ( for loop ) ---- *TAKEN FROM GITHUB COPILOT
-  // =============================================================
-  "for loop in vue": {
-    "prefix": "vue-for",
-    "body": [
-      "<li v-for=\"(${1:item}, index) in ${2:items}\" key=\"index\">",
-      " ${3:{item}}",
-      "</li>"
-    ],
-    "description": "for loop in vue"
-  },
-  // =========================================================
-  // [ 9 ] ---- Vue Component Starter ---- *TAKEN FROM PROJECT
-  // =========================================================
-  "vue component starter template": {
-    "prefix": "vue-comp-starter",
-    "body": [
-      "<script setup>",
-      "</script>",
-      "",
-      "<template>",
-      "<div class=\"container\">",
-      "  <div class=\"inner-container\">",
-      "    <div class=\"content\">",
-      "      <div class=\"content-block\">",
-      "        ${1:}",
-      "      </div>",
-      "    </div>",
-      "  </div>",
-      "</div>",
-      "</template>",
-      "",
-      "<style scoped>",
-      "</style>"
-    ],
-    "description": "vue component starter template"
-  },
-  // =========================================================
-  // [ 10 ] ------------------ Watcher -----------------------
-  // =========================================================
-  "Watcher": {
-    "prefix": "vue-watcher",
-    "body": [
-      "watch(${1:toWatch}, () => {",
-      "  //${2:your code here}",
-      "})"
-    ],
-    "description": "Watcher"
-  },
-  // =========================================================
-  // [ 11 ] ----------- Watcher & console --------------------
-  // =========================================================
-  "Watch and Log": {
-    "prefix": "vue-watch-log",
-    "body": [
-      "watch(${1:ToWatch}, () => {",
-      "console.log(\"%c ${2:Messege}\", \"color: ${3:red}; font-size: 24px; text-shadow: 2px 2px black;\", ${1:ToWatch});",
-      "})"
-    ],
-    "description": "watch and log"
-  }
+	// vue-comp — single-file component (script setup)
+	"Vue Component": {
+		"prefix": "vue-comp",
+		"body": [
+			"<script setup>",
+			"  ${3:}",
+			"</script>",
+			"",
+			"<template>",
+			"  ${1:}",
+			"</template>",
+			"",
+			"<style scoped>",
+			"  ${2:}",
+			"</style>"
+		],
+		"description": "Single-file component with script setup"
+	},
+	// vue-comp-ts — SFC with TypeScript
+	"Vue Component (TypeScript)": {
+		"prefix": "vue-comp-ts",
+		"body": [
+			"<script setup lang=\"ts\">",
+			"  ${3:}",
+			"</script>",
+			"",
+			"<template>",
+			"  ${1:}",
+			"</template>",
+			"",
+			"<style scoped>",
+			"  ${2:}",
+			"</style>"
+		],
+		"description": "Single-file component with TypeScript script setup"
+	},
+	// vue-comp-starter — SFC with wrapper markup
+	"Vue Component Starter": {
+		"prefix": "vue-comp-starter",
+		"body": [
+			"<script setup>",
+			"</script>",
+			"",
+			"<template>",
+			"  <div class=\"container\">",
+			"    <div class=\"inner-container\">",
+			"      <div class=\"content\">",
+			"        <div class=\"content-block\">",
+			"          ${1:}",
+			"        </div>",
+			"      </div>",
+			"    </div>",
+			"  </div>",
+			"</template>",
+			"",
+			"<style scoped>",
+			"</style>"
+		],
+		"description": "Component starter with nested wrapper markup"
+	},
+	// vue-props — defineProps
+	"Vue defineProps": {
+		"prefix": "vue-props",
+		"body": [
+			"const props = defineProps({",
+			"  ${1:prop1}: {",
+			"    type: ${2:String},",
+			"    required: ${3:true},",
+			"  },",
+			"});"
+		],
+		"description": "defineProps declaration"
+	},
+	// vue-emits — defineEmits
+	"Vue defineEmits": {
+		"prefix": "vue-emits",
+		"body": [
+			"const emit = defineEmits([",
+			"  \"${1:event1}\",",
+			"  \"${2:event2}\",",
+			"]);"
+		],
+		"description": "defineEmits declaration"
+	},
+	// vue-ref
+	"Vue ref": {
+		"prefix": "vue-ref",
+		"body": [
+			"const ${1:state} = ref(${2:initialValue});"
+		],
+		"description": "Reactive ref"
+	},
+	// vue-reactive
+	"Vue reactive": {
+		"prefix": "vue-reactive",
+		"body": [
+			"const ${1:state} = reactive({",
+			"  ${2:key}: ${3:value},",
+			"});"
+		],
+		"description": "Reactive object"
+	},
+	// vue-computed
+	"Vue computed": {
+		"prefix": "vue-computed",
+		"body": [
+			"const ${1:value} = computed(() => ${2:expression});"
+		],
+		"description": "Computed property"
+	},
+	// vue-watch
+	"Vue watch": {
+		"prefix": "vue-watch",
+		"body": [
+			"watch(${1:source}, (${2:newValue}, ${3:oldValue}) => {",
+			"  ${0}",
+			"});"
+		],
+		"description": "Watch a reactive source"
+	},
+	// vue-watch-log — watch + styled log
+	"Vue watch and log": {
+		"prefix": "vue-watch-log",
+		"body": [
+			"watch(${1:source}, () => {",
+			"  console.log(\"%c ${2:Message}\", \"color: ${3:red}; font-size: 24px; text-shadow: 2px 2px black;\", ${1:source});",
+			"});"
+		],
+		"description": "Watch a source and log it with styling"
+	},
+	// vue-mounted — onMounted
+	"Vue onMounted": {
+		"prefix": "vue-mounted",
+		"body": [
+			"onMounted(() => {",
+			"  ${0}",
+			"});"
+		],
+		"description": "onMounted lifecycle hook"
+	},
+	// vue-if — v-if / v-else
+	"Vue v-if / v-else": {
+		"prefix": "vue-if",
+		"body": [
+			"<div v-if=\"${1:condition}\">${2:Visible when true}</div>",
+			"<div v-else>${3:Visible when false}</div>"
+		],
+		"description": "Conditional rendering with v-if/v-else"
+	},
+	// vue-elif — v-if / v-else-if / v-else
+	"Vue v-else-if chain": {
+		"prefix": "vue-elif",
+		"body": [
+			"<div v-if=\"${1:conditionA}\">${2:A}</div>",
+			"<div v-else-if=\"${3:conditionB}\">${4:B}</div>",
+			"<div v-else>${5:Fallback}</div>"
+		],
+		"description": "Conditional rendering with v-else-if"
+	},
+	// vue-show — v-show
+	"Vue v-show": {
+		"prefix": "vue-show",
+		"body": [
+			"<div v-show=\"${1:condition}\">${2:Content}</div>"
+		],
+		"description": "Toggle visibility with v-show"
+	},
+	// vue-for — v-for
+	"Vue v-for": {
+		"prefix": "vue-for",
+		"body": [
+			"<li v-for=\"${1:item} in ${2:items}\" :key=\"${1:item}.${3:id}\">",
+			"  {{ ${1:item}.${4:name} }}",
+			"</li>"
+		],
+		"description": "List rendering with v-for and a key"
+	},
+	// vue-model — v-model
+	"Vue v-model": {
+		"prefix": "vue-model",
+		"body": [
+			"<input v-model=\"${1:value}\" type=\"${2:text}\" />"
+		],
+		"description": "Two-way binding with v-model"
+	}
 }
