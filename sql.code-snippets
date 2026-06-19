@@ -1,0 +1,94 @@
+{
+	// sql-select — parameterized select
+	"Select": {
+		"prefix": "sql-select",
+		"scope": "sql",
+		"body": [
+			"SELECT ${1:columns}",
+			"FROM ${2:table}",
+			"WHERE ${3:column} = ${4:\\$1};"
+		],
+		"description": "Parameterized SELECT with a WHERE clause"
+	},
+	// sql-insert
+	"Insert": {
+		"prefix": "sql-insert",
+		"body": [
+			"INSERT INTO ${1:table} (${2:column1}, ${3:column2})",
+			"VALUES (${4:\\$1}, ${5:\\$2})",
+			"RETURNING ${6:id};"
+		],
+		"scope": "sql",
+		"description": "Parameterized INSERT with RETURNING"
+	},
+	// sql-update
+	"Update": {
+		"prefix": "sql-update",
+		"scope": "sql",
+		"body": [
+			"UPDATE ${1:table}",
+			"SET ${2:column} = ${3:\\$1}",
+			"WHERE ${4:id} = ${5:\\$2};"
+		],
+		"description": "Parameterized UPDATE"
+	},
+	// sql-delete
+	"Delete": {
+		"prefix": "sql-delete",
+		"scope": "sql",
+		"body": [
+			"DELETE FROM ${1:table}",
+			"WHERE ${2:id} = ${3:\\$1};"
+		],
+		"description": "Parameterized DELETE"
+	},
+	// sql-join
+	"Join": {
+		"prefix": "sql-join",
+		"scope": "sql",
+		"body": [
+			"SELECT ${1:a.id, b.name}",
+			"FROM ${2:table_a} AS a",
+			"${3:INNER} JOIN ${4:table_b} AS b ON a.${5:id} = b.${6:a_id}",
+			"WHERE ${7:a.active} = ${8:true};"
+		],
+		"description": "SELECT with a JOIN"
+	},
+	// sql-table — create table
+	"Create Table": {
+		"prefix": "sql-table",
+		"scope": "sql",
+		"body": [
+			"CREATE TABLE ${1:table_name} (",
+			"  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,",
+			"  ${2:name} ${3:TEXT} NOT NULL,",
+			"  created_at TIMESTAMPTZ NOT NULL DEFAULT now()",
+			");"
+		],
+		"description": "CREATE TABLE with identity PK and timestamp"
+	},
+	// sql-index
+	"Create Index": {
+		"prefix": "sql-index",
+		"scope": "sql",
+		"body": [
+			"CREATE INDEX ${1:idx_table_column} ON ${2:table} (${3:column});"
+		],
+		"description": "CREATE INDEX"
+	},
+	// sql-cte — common table expression
+	"CTE": {
+		"prefix": "sql-cte",
+		"scope": "sql",
+		"body": [
+			"WITH ${1:cte_name} AS (",
+			"  SELECT ${2:columns}",
+			"  FROM ${3:table}",
+			"  WHERE ${4:condition}",
+			")",
+			"SELECT ${5:*}",
+			"FROM ${1:cte_name};"
+		],
+		"description": "Common table expression (WITH)"
+	}
+}
