@@ -1,0 +1,116 @@
+{
+	// tw-center — flex center on both axes
+	"Flex Center": {
+		"prefix": "tw-center",
+		"body": ["flex items-center justify-center"],
+		"description": "Center children horizontally and vertically with flex"
+	},
+	// tw-center-abs — absolute centering
+	"Absolute Center": {
+		"prefix": "tw-center-abs",
+		"body": ["absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"],
+		"description": "Center absolutely within a relative parent"
+	},
+	// tw-stack — vertical stack with gap
+	"Vertical Stack": {
+		"prefix": "tw-stack",
+		"body": ["flex flex-col gap-${1:4}"],
+		"description": "Vertical flex column with gap"
+	},
+	// tw-row — horizontal row with gap
+	"Horizontal Row": {
+		"prefix": "tw-row",
+		"body": ["flex items-center gap-${1:4}"],
+		"description": "Horizontal flex row, vertically centered, with gap"
+	},
+	// tw-between — space-between row
+	"Flex Between": {
+		"prefix": "tw-between",
+		"body": ["flex items-center justify-between"],
+		"description": "Push children apart with justify-between"
+	},
+	// tw-grid — responsive auto grid
+	"Responsive Grid": {
+		"prefix": "tw-grid",
+		"body": ["grid grid-cols-1 gap-${1:6} sm:grid-cols-2 lg:grid-cols-${2:3}"],
+		"description": "Responsive grid: 1 / 2 / N columns"
+	},
+	// tw-container — centered max-width container
+	"Container": {
+		"prefix": "tw-container",
+		"body": ["mx-auto w-full max-w-${1:7xl} px-4 sm:px-6 lg:px-8"],
+		"description": "Centered max-width container with responsive padding"
+	},
+	// tw-section — vertical section padding
+	"Section Padding": {
+		"prefix": "tw-section",
+		"body": ["py-${1:16} sm:py-${2:24}"],
+		"description": "Vertical section padding"
+	},
+	// tw-card — card surface
+	"Card": {
+		"prefix": "tw-card",
+		"body": ["rounded-xl border border-gray-200 bg-white p-${1:6} shadow-sm"],
+		"description": "Card surface with border, padding and shadow"
+	},
+	// tw-btn — primary button
+	"Button (primary)": {
+		"prefix": "tw-btn",
+		"body": ["inline-flex items-center justify-center rounded-md bg-${1:blue}-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-${1:blue}-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-${1:blue}-500 disabled:cursor-not-allowed disabled:opacity-50"],
+		"description": "Primary button with hover, focus-ring and disabled states"
+	},
+	// tw-input — text input
+	"Input": {
+		"prefix": "tw-input",
+		"body": ["w-full rounded-md border border-gray-300 px-3 py-2 text-sm placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"],
+		"description": "Text input with focus ring"
+	},
+	// tw-badge — pill badge
+	"Badge": {
+		"prefix": "tw-badge",
+		"body": ["inline-flex items-center rounded-full bg-${1:blue}-100 px-2.5 py-0.5 text-xs font-medium text-${1:blue}-800"],
+		"description": "Pill-shaped badge / tag"
+	},
+	// tw-hero — full-height centered hero
+	"Hero": {
+		"prefix": "tw-hero",
+		"body": ["flex min-h-screen flex-col items-center justify-center gap-6 px-4 text-center"],
+		"description": "Full-height centered hero container"
+	},
+	// tw-aspect — fixed aspect-ratio media box
+	"Aspect Box": {
+		"prefix": "tw-aspect",
+		"body": ["aspect-${1:video} w-full overflow-hidden rounded-lg"],
+		"description": "Aspect-ratio media container"
+	},
+	// tw-truncate — single-line truncated text
+	"Truncate Text": {
+		"prefix": "tw-truncate",
+		"body": ["truncate"],
+		"description": "Truncate overflowing text with an ellipsis"
+	},
+	// tw-clamp — multi-line clamp
+	"Line Clamp": {
+		"prefix": "tw-clamp",
+		"body": ["line-clamp-${1:2}"],
+		"description": "Clamp text to N lines"
+	},
+	// tw-skeleton — loading placeholder
+	"Skeleton": {
+		"prefix": "tw-skeleton",
+		"body": ["h-${1:4} w-${2:full} animate-pulse rounded bg-gray-200"],
+		"description": "Animated loading skeleton bar"
+	},
+	// tw-sticky — sticky top header
+	"Sticky Header": {
+		"prefix": "tw-sticky",
+		"body": ["sticky top-0 z-40 border-b border-gray-200 bg-white/80 backdrop-blur"],
+		"description": "Sticky, blurred top header bar"
+	},
+	// tw-overlay — modal backdrop
+	"Modal Overlay": {
+		"prefix": "tw-overlay",
+		"body": ["fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"],
+		"description": "Full-screen modal backdrop, centered content"
+	}
+}
