@@ -1,0 +1,51 @@
+{
+	// db-prisma-model — Prisma schema model
+	"Prisma Model": {
+		"prefix": "db-prisma-model",
+		"scope": "prisma",
+		"body": [
+			"model ${1:Name} {",
+			"  id        String   @id @default(cuid())",
+			"  ${2:name}      ${3:String}",
+			"  createdAt DateTime @default(now())",
+			"  updatedAt DateTime @updatedAt",
+			"}"
+		],
+		"description": "Prisma model with id and timestamps"
+	},
+	// db-prisma-query — Prisma client query
+	"Prisma Query": {
+		"prefix": "db-prisma-query",
+		"scope": "javascript,typescript",
+		"body": [
+			"const ${1:records} = await prisma.${2:model}.findMany({",
+			"  where: { ${3:field}: ${4:value} },",
+			"  orderBy: { ${5:createdAt}: \"${6:desc}\" },",
+			"});"
+		],
+		"description": "Prisma findMany query"
+	},
+	// db-drizzle — Drizzle select
+	"Drizzle Select": {
+		"prefix": "db-drizzle",
+		"scope": "javascript,typescript",
+		"body": [
+			"const ${1:rows} = await db",
+			"  .select()",
+			"  .from(${2:table})",
+			"  .where(eq(${2:table}.${3:column}, ${4:value}));"
+		],
+		"description": "Drizzle ORM select query"
+	},
+	// db-mongo — MongoDB find
+	"Mongo Find": {
+		"prefix": "db-mongo",
+		"scope": "javascript,typescript",
+		"body": [
+			"const ${1:docs} = await ${2:collection}",
+			"  .find({ ${3:field}: ${4:value} })",
+			"  .toArray();"
+		],
+		"description": "MongoDB find query"
+	}
+}
