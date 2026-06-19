@@ -1,19 +1,29 @@
 {
-	// ===========================================================
-	// [ 1 ] ---- ASTRO Component Starter ---- *TAKEN FROM PROJECT
-	// ===========================================================
-	"template for astro component": {
+	// astro-comp — frontmatter + markup
+	"Astro Component": {
+		"prefix": "astro-comp",
+		"body": [
+			"---",
+			"${1:// component script}",
+			"---",
+			"",
+			"${2:<!-- markup -->}"
+		],
+		"description": "Minimal component with frontmatter and markup"
+	},
+	// astro-comp-starter — component with wrapper markup
+	"Astro Component Starter": {
 		"prefix": "astro-comp-starter",
 		"body": [
 			"---",
-			"",
+			"${1:}",
 			"---",
 			"",
 			"<div class=\"container\">",
 			"  <div class=\"inner-container\">",
 			"    <div class=\"content\">",
 			"      <div class=\"content-block\">",
-			"        ${1:}",
+			"        ${2:}",
 			"      </div>",
 			"    </div>",
 			"  </div>",
@@ -22,107 +32,106 @@
 			"<style>",
 			"</style>"
 		],
-		"description": "template for astro component"
+		"description": "Component starter with nested wrapper markup"
 	},
-	// ======================================================
-	// [ 2 ] ---- Access JSON Object ---- *TAKEN FROM PROJECT
-	// ======================================================
-	"access json objects": {
-		"prefix": "astro-getJson",
-		"body": [
-			"{${1:data.bullets}.map((bullet: any) => <${2:code}>{${3:bullet}}</${2:code}>)}"
-		],
-		"description": "access json objects"
-	},
-	// ================================================
-	// [ 3 ] ---- If Statement ---- *TAKEN FROM PROJECT
-	// ================================================
-	"if statement": {
-		"prefix": "astro-if",
-		"body": [
-			"{${1:data.content.title} && <${2:h3}>{${1:data.content.title}}</${2:h3}>}"
-		],
-		"description": "if statement"
-	},
-	// ==========================================================
-	// [ 4 ] ---- Variable To Store JSON ---- *TAKEN FROM PROJECT
-	// ==========================================================
-	"store json in a variable": {
-		"prefix": "astro-storeJson",
-		"body": [
-			"const ${1:tid} = ${2:fid}.map((data: any) => :data.${3:ti});"
-		],
-		"description": "store json in a variable"
-	},
-	// ==============================================================
-	// [ 5 ] ---- Include Files, Fonts, etc. ---- *TAKEN FROM PROJECT
-	// ==============================================================
-	"astro files and fonts include": {
-		"prefix": "astro-include-starter",
+	// astro-props — typed Props
+	"Astro Props": {
+		"prefix": "astro-props",
 		"body": [
 			"---",
-			"import '${1:FILE ADDRESS}';",
+			"interface Props {",
+			"  ${1:title}: ${2:string};",
+			"}",
 			"",
-			"---",
-			"",
-			"  <!-- google fonts -->",
-			"  ${2:<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />",
-			"  <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />",
-			"  <link",
-			"    href=\"https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700;800;900&display=swap\"",
-			"    rel=\"stylesheet\" />}",
-			"  <!-- Google tag (gtag.js) -->",
-			"  ${3:<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-6SSWGRHDPD\"></script>}",
-			"  <!-- font awesome -->",
-			"  ${4:<script src=\"https://kit.fontawesome.com/707240b3b6.js\" crossorigin=\"anonymous\"></script>}",
-		],
-		"description": "astro files and fonts include"
-	},
-	// ===================================================
-	// [ 6 ] ---- Directory Alias ---- *TAKEN FROM PROJECT
-	// ===================================================
-	"Directory Alias": {
-		"prefix": "astro-directory-alias",
-		"body": [
-			"\"paths\": { ",
-			"      \"@bolt/*\": [\"src/components/MC/bolts/*\"],",
-			"      \"@brick/*\": [\"src/components/MC/bricks/*\"],",
-			"      \"@slice/*\": [\"src/components/MC/slices/*\"],",
-			"      \"@data/*\": [\"src/components/data/*\"],",
-			"      \"@metashit/*\": [\"src/components/sitemeta/*\"],",
-			"      \"@layout/*\": [\"src/layouts/*\"],",
-			"      \"@styles/*\": [\"src/Stylesheet/*\"],",
-			"      \"@MCdata/*\": [\"src/components/MC/data/*\"],",
-			"      },"
-		],
-		"description": "Directory Alias"
-	},
-	// ====================================================
-	// [ 7 ] ---- MDX Page Starter ---- *TAKEN FROM PROJECT
-	// ====================================================
-	"Page starter mdx": {
-		"prefix": "astro-mdx-page-starter",
-		"body": [
-			"---",
-			"layout: \"${1:/src/layouts/LanderDefault.astro}\"",
-			"title: \"${2:Home}\"",
-			"description: \"${3:We help companies of all sizes and industries. We're here to help you find the right solution for your business.}\"",
+			"const { ${1:title} } = Astro.props;",
 			"---"
 		],
-		"description": "Page starter mdx"
+		"description": "Typed Props interface with Astro.props"
 	},
-	// =======================================
-	// [ 8 ] ---- Astro Component Starter ----
-	// =======================================
-	"Astro Component Starter": {
-		"prefix": "astro-comp-sarter-raw",
+	// astro-fetch — top-level await fetch
+	"Astro Fetch": {
+		"prefix": "astro-fetch",
 		"body": [
 			"---",
-			"${1:Script here}",
+			"const response = await fetch(\"${1:https://api.example.com/resource}\");",
+			"const ${2:data} = await response.json();",
+			"---"
+		],
+		"description": "Top-level await fetch inside frontmatter"
+	},
+	// astro-paths — getStaticPaths
+	"Astro getStaticPaths": {
+		"prefix": "astro-paths",
+		"body": [
+			"---",
+			"export async function getStaticPaths() {",
+			"  const ${1:items} = await ${2:getCollection(\"blog\")};",
+			"",
+			"  return ${1:items}.map((${3:item}) => ({",
+			"    params: { ${4:slug}: ${3:item}.${4:slug} },",
+			"    props: { ${3:item} },",
+			"  }));",
+			"}",
+			"",
+			"const { ${3:item} } = Astro.props;",
+			"---"
+		],
+		"description": "getStaticPaths for dynamic routes"
+	},
+	// astro-map — render a list
+	"Astro List Render": {
+		"prefix": "astro-map",
+		"body": [
+			"{${1:items}.map((${2:item}) => (",
+			"  <${3:li}>{${2:item}.${4:name}}</${3:li}>",
+			"))}"
+		],
+		"description": "Render a list with .map()"
+	},
+	// astro-slot
+	"Astro Slot": {
+		"prefix": "astro-slot",
+		"body": [
+			"<slot${1: name=\"${2:default}\"} />"
+		],
+		"description": "Slot for child content"
+	},
+	// astro-import — named import in frontmatter
+	"Astro Import": {
+		"prefix": "astro-import",
+		"body": [
+			"import { ${1:getCollection} } from \"${2:astro:content}\";"
+		],
+		"description": "Named import inside frontmatter"
+	},
+	// astro-mdx — MDX page frontmatter
+	"Astro MDX Page": {
+		"prefix": "astro-mdx",
+		"body": [
+			"---",
+			"layout: \"${1:/src/layouts/Default.astro}\"",
+			"title: \"${2:Page title}\"",
+			"description: \"${3:Page description}\"",
+			"---"
+		],
+		"description": "MDX page frontmatter starter"
+	},
+	// astro-head — import styles, include fonts/analytics
+	"Astro Head Includes": {
+		"prefix": "astro-head",
+		"body": [
+			"---",
+			"import \"${1:../styles/global.css}\";",
 			"---",
 			"",
-			"${2:}"
+			"<!-- google fonts -->",
+			"<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />",
+			"<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />",
+			"<link href=\"https://fonts.googleapis.com/css2?family=${2:Work+Sans}:wght@${3:300;400;600;700}&display=swap\" rel=\"stylesheet\" />",
+			"",
+			"<!-- Google tag (gtag.js) -->",
+			"<script async src=\"https://www.googletagmanager.com/gtag/js?id=${4:G-XXXXXXXXXX}\"></script>"
 		],
-		"description": "Astro Component Starter"
+		"description": "Import styles and include fonts/analytics"
 	}
 }
