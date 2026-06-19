@@ -1,0 +1,61 @@
+{
+	// rust-main
+	"Main": {
+		"prefix": "rust-main",
+		"scope": "rust",
+		"body": [
+			"fn main() {",
+			"    ${0:println!(\"hello\");}",
+			"}"
+		],
+		"description": "Main function"
+	},
+	// rust-fn — function returning Result
+	"Function": {
+		"prefix": "rust-fn",
+		"scope": "rust",
+		"body": [
+			"fn ${1:name}(${2:param}: ${3:&str}) -> ${4:Result<(), Box<dyn std::error::Error>>} {",
+			"    ${0}",
+			"}"
+		],
+		"description": "Function with a Result return type"
+	},
+	// rust-struct
+	"Struct": {
+		"prefix": "rust-struct",
+		"scope": "rust",
+		"body": [
+			"#[derive(Debug, Clone)]",
+			"struct ${1:Name} {",
+			"    ${2:field}: ${3:String},",
+			"}"
+		],
+		"description": "Struct with derives"
+	},
+	// rust-match
+	"Match": {
+		"prefix": "rust-match",
+		"scope": "rust",
+		"body": [
+			"match ${1:value} {",
+			"    ${2:Pattern} => ${3:expr},",
+			"    _ => ${4:default},",
+			"}"
+		],
+		"description": "match expression"
+	},
+	// rust-test
+	"Test": {
+		"prefix": "rust-test",
+		"scope": "rust",
+		"body": [
+			"#[test]",
+			"fn ${1:test_name}() {",
+			"    ${0}",
+			"    assert_eq!(${2:actual}, ${3:expected});",
+			"}"
+		],
+		"description": "Unit test function"
+	}
+}
