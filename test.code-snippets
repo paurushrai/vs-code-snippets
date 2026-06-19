@@ -1,0 +1,91 @@
+{
+	// test-describe — suite
+	"Describe Block": {
+		"prefix": "test-describe",
+		"scope": "javascript,typescript,javascriptreact,typescriptreact",
+		"body": [
+			"describe(\"${1:unit}\", () => {",
+			"  ${0}",
+			"});"
+		],
+		"description": "Test suite (Vitest/Jest)"
+	},
+	// test-it — single test
+	"Test Case": {
+		"prefix": "test-it",
+		"scope": "javascript,typescript,javascriptreact,typescriptreact",
+		"body": [
+			"it(\"should ${1:behaviour} when ${2:condition}\", () => {",
+			"  ${3:// arrange}",
+			"",
+			"  ${4:// act}",
+			"",
+			"  ${5:// assert}",
+			"});"
+		],
+		"description": "Single test case with arrange/act/assert"
+	},
+	// test-async — async test
+	"Async Test Case": {
+		"prefix": "test-async",
+		"scope": "javascript,typescript,javascriptreact,typescriptreact",
+		"body": [
+			"it(\"should ${1:behaviour} when ${2:condition}\", async () => {",
+			"  ${0}",
+			"});"
+		],
+		"description": "Async test case"
+	},
+	// test-expect
+	"Expect": {
+		"prefix": "test-expect",
+		"scope": "javascript,typescript,javascriptreact,typescriptreact",
+		"body": [
+			"expect(${1:actual}).${2:toBe}(${3:expected});"
+		],
+		"description": "Assertion"
+	},
+	// test-mock — mock a function
+	"Mock Function": {
+		"prefix": "test-mock",
+		"scope": "javascript,typescript,javascriptreact,typescriptreact",
+		"body": [
+			"const ${1:fn} = vi.fn(${2:() => ${3:value}});"
+		],
+		"description": "Mock function (Vitest; use jest.fn for Jest)"
+	},
+	// test-beforeeach
+	"beforeEach": {
+		"prefix": "test-beforeeach",
+		"scope": "javascript,typescript,javascriptreact,typescriptreact",
+		"body": [
+			"beforeEach(() => {",
+			"  ${0}",
+			"});"
+		],
+		"description": "Run setup before each test"
+	},
+	// test-rtl — React Testing Library render + query
+	"RTL Render": {
+		"prefix": "test-rtl",
+		"scope": "javascriptreact,typescriptreact",
+		"body": [
+			"render(<${1:Component} ${2:prop}={${3:value}} />);",
+			"",
+			"expect(screen.getByRole(\"${4:button}\", { name: /${5:label}/i })).toBeInTheDocument();"
+		],
+		"description": "Render a component and query with React Testing Library"
+	},
+	// test-pw — Playwright test
+	"Playwright Test": {
+		"prefix": "test-pw",
+		"scope": "javascript,typescript",
+		"body": [
+			"test(\"${1:should load the page}\", async ({ page }) => {",
+			"  await page.goto(\"${2:/}\");",
+			"  await expect(page.getByRole(\"${3:heading}\", { name: /${4:title}/i })).toBeVisible();",
+			"});"
+		],
+		"description": "Playwright end-to-end test"
+	}
+}
