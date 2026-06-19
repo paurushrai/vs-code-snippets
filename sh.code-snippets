@@ -1,0 +1,65 @@
+{
+	// sh-script — safe script header
+	"Bash Script Header": {
+		"prefix": "sh-script",
+		"scope": "shellscript",
+		"body": [
+			"#!/usr/bin/env bash",
+			"set -euo pipefail",
+			"",
+			"${0}"
+		],
+		"description": "Bash shebang with strict mode (set -euo pipefail)"
+	},
+	// sh-fn — function with a local arg
+	"Bash Function": {
+		"prefix": "sh-fn",
+		"scope": "shellscript",
+		"body": [
+			"${1:fn_name}() {",
+			"  local ${2:arg}=\"\\$1\"",
+			"  ${0}",
+			"}"
+		],
+		"description": "Bash function reading a positional argument"
+	},
+	// sh-if — guard on an env var
+	"Bash If (var check)": {
+		"prefix": "sh-if",
+		"scope": "shellscript",
+		"body": [
+			"if [[ -z \"\\${${1:VARNAME}:-}\" ]]; then",
+			"  echo \"Missing ${1:VARNAME}\" >&2",
+			"  exit 1",
+			"fi"
+		],
+		"description": "Exit if a required variable is unset or empty"
+	},
+	// sh-for — loop over array
+	"Bash For Loop": {
+		"prefix": "sh-for",
+		"scope": "shellscript",
+		"body": [
+			"for ${1:item} in \"\\${${2:items}[@]}\"; do",
+			"  echo \"\\$${1:item}\"",
+			"done"
+		],
+		"description": "Loop over an array, quoting expansion"
+	},
+	// sh-case — case statement
+	"Bash Case": {
+		"prefix": "sh-case",
+		"scope": "shellscript",
+		"body": [
+			"case \"\\${${1:value}}\" in",
+			"  ${2:pattern})",
+			"    ${3:command}",
+			"    ;;",
+			"  *)",
+			"    ${4:echo \"unknown\" >&2}",
+			"    ;;",
+			"esac"
+		],
+		"description": "Bash case statement"
+	}
+}
