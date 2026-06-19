@@ -1,192 +1,143 @@
 {
-	// ====================================================
-	// [ 1 ] ---- Import Statement ---- *TAKEN FROM PROJECT
-	// ====================================================
-	"Import Statement": {
+	// ts-import — default import
+	"Import (default)": {
 		"prefix": "ts-import",
 		"body": [
-			"import ${1:Hero} from \"${2:@slice/Hero.astro}\";",
+			"import ${1:Module} from \"${2:./module}\";"
 		],
-		"description": "Import Statement"
+		"description": "Default import statement"
 	},
-	// ===============================================
-	// [ 2 ] ---- Console.log ---- 
-	// ===============================================
-	"console.log()": {
-		"prefix": "ts-console",
+	// ts-import-named — named import
+	"Import (named)": {
+		"prefix": "ts-import-named",
+		"body": [
+			"import { ${1:member} } from \"${2:./module}\";"
+		],
+		"description": "Named import statement"
+	},
+	// ts-log — console.log
+	"Console Log": {
+		"prefix": "ts-log",
 		"body": [
 			"console.log(\"${1:Hello world!}\");"
 		],
-		"description": "console.log()"
+		"description": "Log a message to the console"
 	},
-	// =======================================================================
-	// [ 3 ] ---- Consume API without key using fetch ---- *TAKEN FROM PROJECT 
-	// =======================================================================
-	"Consume api (without key) with fetch ": {
-		"prefix": "ts-consume-api",
+	// ts-fn — function declaration
+	"Function": {
+		"prefix": "ts-fn",
 		"body": [
-			"export default {",
-			"  data() {",
-			"    return {",
-			"      items: []",
-			"    };",
-			"    console.log(items);",
-			"  },",
-			"  methods: {",
-			"    fetchItems() {",
-			"      fetch(\"${1:https://cms-buychain-pb01.up.railway.app/items/home/340b5764-07a3-4c59-9e56-b137275dba7d?access_token=2FfEVIDkZ9J0Iq_JycdfwQ_3UIQ-Ylga&fields=grab_a_slice.nosql_datastore_id.*}\")",
-			"        .then((response) => response.json())",
-			"        .then((data) => (this.items = data));",
-			"      console.log(this);",
-			"    }",
-			"  },",
-			"  mounted() {",
-			"    this.fetchItems();",
-			"  }",
-			"};"
-		],
-		"description": "Consume api (without key) with fetch "
-	},
-	// ====================================================================
-	// [ 4 ] ---- Consume API with key using fetch ---- *TAKEN FROM PROJECT 
-	// ====================================================================
-	"Consume API with key using fetch": {
-		"prefix": "ts-consume-api-key",
-		"body": [
-			"export default {",
-			"  data() {",
-			"    return {",
-			"      items: []",
-			"    };",
-			"  },",
-			"  methods: {",
-			"    fetchItems() {",
-			"      const options = {",
-			"        method: 'GET',",
-			"        headers: {",
-			"          'Authorization': 'Bearer ${1:xUu7uNUFtkVRl3uwpeMvZngHUvf1MOT4}',",
-			"          'Host': '${2:https://3ytvvyi4.directus.app/}'",
-			"        }",
-			"      };",
-			"",
-			"      fetch('${3:https://3ytvvyi4.directus.app/items/articles/10?fields[]=translations.body}', options)",
-			"        .then(response => response.json())",
-			"        .then((data) => (this.items = data));",
-			"      console.log(this);",
-			"    }",
-			"  },",
-			"  mounted() {",
-			"    this.fetchItems();",
-			"  }",
-			"};",
-			"console.log(this);"
-		],
-		"description": "Consume API with key using fetch"
-	},
-	// ===============================================
-	// [ 5 ] ---- Stringify JSON Object ---- 
-	// ===============================================
-	"Stringify JSON Object": {
-		"prefix": "ts-stringify",
-		"body": [
-			"JSON.stringify(${1:items})"
-		],
-		"description": "Stringify"
-	},
-	// ===============================================
-	// [ 6 ] ---- Parse JSON Object ---- 
-	// ===============================================
-	"Parse JSON Object": {
-		"prefix": "ts-parse",
-		"body": [
-			"JSON.parse(${1:items})"
-		],
-		"description": "Parse JSON Object"
-	},
-	// ============================================================================
-	// [ 7 ] ---- Directus import statement ---- *TAKEN FROM DIRECTUS DOCUMENTATION
-	// ============================================================================
-	"directus import statement": {
-		"prefix": "ts-import-directus/sdk",
-		"body": [
-			"import { Directus } from '@directus/sdk';",
-			"",
-			"const directus = new Directus('http://directus.example.com');"
-		],
-		"description": "directus import statement"
-	},
-	// ==============================================================================
-	// [ 8 ] ---- Directus Access Public Data ---- *TAKEN FROM DIRECTUS DOCUMENTATION
-	// ==============================================================================
-	"Directus Access Public Directus Data ": {
-		"prefix": "ts-access-directus-data-public",
-		"body": [
-			"async function publicData() {",
-			"//GET DATA",
-			
-			"// We don't need to authenticate if the public role has access to some_public_collection.",
-			"const publicData = await directus.items('some_public_collection').readByQuery({ sort: ['id'] });",
-			"",
-			"console.log(publicData.data);",
+			"function ${1:fnName}(${2:params}): ${3:void} {",
+			"  ${0}",
 			"}"
 		],
-		"description": "Directus Access Public Directus Data Using Await"
+		"description": "Typed function declaration"
 	},
-	// ===================================================================================
-	// [ 9 ] ---- Directus Access Data Using Axios ---- *TAKEN FROM DIRECTUS DOCUMENTATION
-	// ===================================================================================
-	"Directus Access Directus Data Using Await": {
-		"prefix": "ts-consume-directus-data-await",
+	// ts-arrow — arrow function
+	"Arrow Function": {
+		"prefix": "ts-arrow",
 		"body": [
-			"async function start() {",
-			" // AUTHENTICATION",
-			"",
-			" let authenticated = false;",
-			"",
-			" // Try to authenticate with token if exists",
-			" await directus.auth",
-			"   .refresh()",
-			"   .then(() => {",
-			"      authenticated = true;",
-			"    })",
-			"   .catch(() => {});",
-			"",
-			" // Let's login in case we don't have token or it is invalid / expired",
-			" while (!authenticated) {",
-			"   const email = window.prompt('Email:');",
-			"   const password = window.prompt('Password:');",
-			"",
-			"   await directus.auth",
-			"     .login({ email, password })",
-			"     .then(() => {",
-			"       authenticated = true;",
-			"      })",
-			"     .catch(() => {",
-			"       window.alert('Invalid credentials');",
-			"      });",
-			" }",
-			"",
-			" // GET DATA",
-			"",
-			" // After authentication, we can fetch data from any collections that the user has permissions to.",
-			" const privateData = await directus.items('some_private_collection').readByQuery({ sort: ['id'] });",
-			"",
-			" console.log(privateData.data);",
-			"}",
-			"",
-			"start();"
+			"const ${1:fnName} = (${2:params}): ${3:void} => {",
+			"  ${0}",
+			"};"
 		],
-		"description": "Directus Access Directus Data Using Await"
+		"description": "Typed arrow function"
 	},
-	// ====================================================
-	// [ 10 ] ---- Import a Module ---- *TAKEN FROM PROJECT
-	// ====================================================
-	"Import a Module": {
-		"prefix": "ts-import-module",
+	// ts-afn — async function
+	"Async Function": {
+		"prefix": "ts-afn",
 		"body": [
-			"import { ${1:getCollection} } from '${2:astro:content}';",
-			""
+			"async function ${1:fnName}(${2:params}): Promise<${3:void}> {",
+			"  ${0}",
+			"}"
 		],
-		"description": "Import a Module"
+		"description": "Async function with a typed Promise return"
+	},
+	// ts-fetch — typed fetch with async/await
+	"Fetch (async/await)": {
+		"prefix": "ts-fetch",
+		"body": [
+			"async function ${1:fetchData}(): Promise<${2:unknown}> {",
+			"  const response = await fetch(\"${3:https://api.example.com/resource}\");",
+			"  if (!response.ok) {",
+			"    throw new Error(`Request failed: ${response.status}`);",
+			"  }",
+			"  return (await response.json()) as ${2:unknown};",
+			"}"
+		],
+		"description": "Typed fetch helper with error handling"
+	},
+	// ts-fetch-auth — fetch with bearer token
+	"Fetch (with auth header)": {
+		"prefix": "ts-fetch-auth",
+		"body": [
+			"const response = await fetch(\"${1:https://api.example.com/resource}\", {",
+			"  method: \"${2:GET}\",",
+			"  headers: {",
+			"    Authorization: `Bearer ${${3:token}}`,",
+			"    \"Content-Type\": \"application/json\",",
+			"  },",
+			"});",
+			"const ${4:data} = await response.json();"
+		],
+		"description": "Fetch with a bearer auth header (token from a variable)"
+	},
+	// ts-try — try/catch
+	"Try / Catch": {
+		"prefix": "ts-try",
+		"body": [
+			"try {",
+			"  ${1:// code}",
+			"} catch (error) {",
+			"  ${2:console.error(error);}",
+			"}"
+		],
+		"description": "try/catch block"
+	},
+	// ts-interface
+	"Interface": {
+		"prefix": "ts-interface",
+		"body": [
+			"interface ${1:Name} {",
+			"  ${2:id}: ${3:string};",
+			"}"
+		],
+		"description": "TypeScript interface"
+	},
+	// ts-type — type alias
+	"Type Alias": {
+		"prefix": "ts-type",
+		"body": [
+			"type ${1:Name} = {",
+			"  ${2:id}: ${3:string};",
+			"};"
+		],
+		"description": "TypeScript type alias"
+	},
+	// ts-enum — string enum
+	"Enum": {
+		"prefix": "ts-enum",
+		"body": [
+			"enum ${1:Name} {",
+			"  ${2:Value} = \"${3:value}\",",
+			"}"
+		],
+		"description": "TypeScript string enum"
+	},
+	// ts-stringify
+	"Stringify JSON": {
+		"prefix": "ts-stringify",
+		"body": [
+			"JSON.stringify(${1:value}${2:, null, 2})"
+		],
+		"description": "Serialize a value to a JSON string"
+	},
+	// ts-parse
+	"Parse JSON": {
+		"prefix": "ts-parse",
+		"body": [
+			"JSON.parse(${1:text})"
+		],
+		"description": "Parse a JSON string"
 	}
 }
