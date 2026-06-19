@@ -1,0 +1,168 @@
+{
+	// react-comp — function component with typed props
+	"React Component": {
+		"prefix": "react-comp",
+		"body": [
+			"interface ${1:ComponentName}Props {",
+			"  ${2:children?: React.ReactNode;}",
+			"}",
+			"",
+			"export function ${1:ComponentName}({ ${3:children} }: ${1:ComponentName}Props) {",
+			"  return (",
+			"    <div>",
+			"      ${0}",
+			"    </div>",
+			"  );",
+			"}"
+		],
+		"description": "Function component with a typed props interface"
+	},
+	// react-comp-bare — function component, no props
+	"React Component (no props)": {
+		"prefix": "react-comp-bare",
+		"body": [
+			"export function ${1:ComponentName}() {",
+			"  return (",
+			"    <div>",
+			"      ${0}",
+			"    </div>",
+			"  );",
+			"}"
+		],
+		"description": "Minimal function component without props"
+	},
+	// react-usestate
+	"React useState": {
+		"prefix": "react-usestate",
+		"body": [
+			"const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState${2:<${3:string}>}(${4:initialValue});"
+		],
+		"description": "useState hook with typed state"
+	},
+	// react-useeffect
+	"React useEffect": {
+		"prefix": "react-useeffect",
+		"body": [
+			"useEffect(() => {",
+			"  ${1:// effect}",
+			"}, [${2:deps}]);"
+		],
+		"description": "useEffect hook with a dependency array"
+	},
+	// react-useeffect-clean — effect with cleanup
+	"React useEffect (cleanup)": {
+		"prefix": "react-useeffect-clean",
+		"body": [
+			"useEffect(() => {",
+			"  ${1:// effect}",
+			"",
+			"  return () => {",
+			"    ${2:// cleanup}",
+			"  };",
+			"}, [${3:deps}]);"
+		],
+		"description": "useEffect hook with a cleanup function"
+	},
+	// react-useref
+	"React useRef": {
+		"prefix": "react-useref",
+		"body": [
+			"const ${1:ref} = useRef<${2:HTMLDivElement}>(${3:null});"
+		],
+		"description": "useRef hook with an element type"
+	},
+	// react-usecontext
+	"React useContext": {
+		"prefix": "react-usecontext",
+		"body": [
+			"const ${1:value} = useContext(${2:MyContext});"
+		],
+		"description": "Consume a context value"
+	},
+	// react-usereducer
+	"React useReducer": {
+		"prefix": "react-usereducer",
+		"body": [
+			"const [${1:state}, dispatch] = useReducer(${2:reducer}, ${3:initialState});"
+		],
+		"description": "useReducer hook"
+	},
+	// react-usememo
+	"React useMemo": {
+		"prefix": "react-usememo",
+		"body": [
+			"const ${1:memoized} = useMemo(() => ${2:computeValue}, [${3:deps}]);"
+		],
+		"description": "Memoize an expensive computed value"
+	},
+	// react-usecallback
+	"React useCallback": {
+		"prefix": "react-usecallback",
+		"body": [
+			"const ${1:handler} = useCallback((${2:args}) => {",
+			"  ${3:// body}",
+			"}, [${4:deps}]);"
+		],
+		"description": "Memoize a callback"
+	},
+	// react-hook — custom hook
+	"React Custom Hook": {
+		"prefix": "react-hook",
+		"body": [
+			"export function use${1:Custom}(${2:params}) {",
+			"  const [${3:state}, set${3/(.*)/${1:/capitalize}/}] = useState(${4:initialValue});",
+			"",
+			"  ${0}",
+			"",
+			"  return { ${3} } as const;",
+			"}"
+		],
+		"description": "Custom hook scaffold"
+	},
+	// react-provider — context + provider + consumer hook
+	"React Context Provider": {
+		"prefix": "react-provider",
+		"body": [
+			"interface ${1:My}ContextValue {",
+			"  ${2:value: string;}",
+			"}",
+			"",
+			"const ${1:My}Context = createContext<${1:My}ContextValue | undefined>(undefined);",
+			"",
+			"export function ${1:My}Provider({ children }: { children: React.ReactNode }) {",
+			"  ${3:const value = {};}",
+			"",
+			"  return <${1:My}Context.Provider value={${4:value}}>{children}</${1:My}Context.Provider>;",
+			"}",
+			"",
+			"export function use${1:My}() {",
+			"  const context = useContext(${1:My}Context);",
+			"  if (context === undefined) {",
+			"    throw new Error(\"use${1:My} must be used within ${1:My}Provider\");",
+			"  }",
+			"  return context;",
+			"}"
+		],
+		"description": "Typed context with a provider and a safe consumer hook"
+	},
+	// react-map — render a list
+	"React List Render": {
+		"prefix": "react-map",
+		"body": [
+			"{${1:items}.map((${2:item}) => (",
+			"  <${3:li} key={${2:item}.${4:id}}>${5:{${2:item}.${6:name}}}</${3:li}>",
+			"))}"
+		],
+		"description": "Render a list with .map() and a key"
+	},
+	// react-if — conditional render
+	"React Conditional Render": {
+		"prefix": "react-if",
+		"body": [
+			"{${1:condition} && (",
+			"  <${2:div}>${0}</${2:div}>",
+			")}"
+		],
+		"description": "Short-circuit conditional rendering"
+	}
+}
