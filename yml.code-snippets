@@ -1,0 +1,47 @@
+{
+	// yml-gha — GitHub Actions CI workflow
+	"GitHub Actions CI": {
+		"prefix": "yml-gha",
+		"scope": "yaml",
+		"body": [
+			"name: ${1:CI}",
+			"",
+			"on:",
+			"  push:",
+			"    branches: [${2:main}]",
+			"  pull_request:",
+			"    branches: [${2:main}]",
+			"",
+			"jobs:",
+			"  ${3:build}:",
+			"    runs-on: ubuntu-latest",
+			"    steps:",
+			"      - uses: actions/checkout@v4",
+			"      - uses: actions/setup-node@v4",
+			"        with:",
+			"          node-version: ${4:20}",
+			"          cache: npm",
+			"      - run: npm ci",
+			"      - run: npm run ${5:test}"
+		],
+		"description": "GitHub Actions CI workflow for Node"
+	},
+	// yml-gha-deploy — job with a secret
+	"GitHub Actions Deploy Job": {
+		"prefix": "yml-gha-deploy",
+		"scope": "yaml",
+		"body": [
+			"  deploy:",
+			"    runs-on: ubuntu-latest",
+			"    needs: ${1:build}",
+			"    if: github.ref == 'refs/heads/${2:main}'",
+			"    steps:",
+			"      - uses: actions/checkout@v4",
+			"      - name: ${3:Deploy}",
+			"        env:",
+			"          TOKEN: \\${{ secrets.${4:DEPLOY_TOKEN} }}",
+			"        run: ${5:./deploy.sh}"
+		],
+		"description": "GitHub Actions deploy job using a repository secret"
+	}
+}
