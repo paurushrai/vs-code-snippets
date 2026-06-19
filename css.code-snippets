@@ -356,5 +356,103 @@
 			"}"
 		],
 		"description": "Normalize CSS"
+	},
+	// Box-sizing reset
+	"Box Sizing Reset": {
+		"prefix": "css-reset",
+		"body": [
+			"*,",
+			"*::before,",
+			"*::after {",
+			"  box-sizing: border-box;",
+			"  margin: 0;",
+			"  padding: 0;",
+			"}"
+		],
+		"description": "Minimal box-sizing and margin/padding reset"
+	},
+	// Flex center
+	"Flex Center": {
+		"prefix": "css-center",
+		"body": [
+			"display: flex;",
+			"align-items: center;",
+			"justify-content: center;"
+		],
+		"description": "Center children with flexbox"
+	},
+	// Flex container
+	"Flex Container": {
+		"prefix": "css-flex",
+		"body": [
+			"display: flex;",
+			"flex-direction: ${1:row};",
+			"align-items: ${2:center};",
+			"justify-content: ${3:space-between};",
+			"gap: ${4:1rem};"
+		],
+		"description": "Flexbox container"
+	},
+	// Responsive grid
+	"Responsive Grid": {
+		"prefix": "css-grid",
+		"body": [
+			"display: grid;",
+			"grid-template-columns: repeat(auto-fit, minmax(${1:240px}, 1fr));",
+			"gap: ${2:1rem};"
+		],
+		"description": "Auto-fit responsive grid"
+	},
+	// CSS variables
+	"CSS Variables": {
+		"prefix": "css-vars",
+		"body": [
+			":root {",
+			"  --${1:primary}: ${2:#000000};",
+			"  --${3:spacing}: ${4:1rem};",
+			"}"
+		],
+		"description": "Custom properties on :root"
+	},
+	// Media query
+	"Media Query": {
+		"prefix": "css-media",
+		"body": [
+			"@media (max-width: ${1:768px}) {",
+			"  ${0}",
+			"}"
+		],
+		"description": "Media query breakpoint"
+	},
+	// Transition
+	"Transition": {
+		"prefix": "css-transition",
+		"body": [
+			"transition: ${1:all} ${2:0.2s} ${3:ease-in-out};"
+		],
+		"description": "CSS transition shorthand"
+	},
+	// Keyframes animation
+	"Keyframes Animation": {
+		"prefix": "css-keyframes",
+		"body": [
+			"@keyframes ${1:fadeIn} {",
+			"  from {",
+			"    ${2:opacity: 0;}",
+			"  }",
+			"  to {",
+			"    ${3:opacity: 1;}",
+			"  }",
+			"}"
+		],
+		"description": "Keyframes animation block"
+	},
+	// Fluid type with clamp
+	"Fluid Type (clamp)": {
+		"prefix": "css-clamp",
+		"body": [
+			"font-size: clamp(${1:1rem}, ${2:2.5vw}, ${3:2rem});"
+		],
+		"description": "Fluid font-size using clamp()"
 	}
 }
