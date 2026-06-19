@@ -1,0 +1,108 @@
+{
+	// node-route-get — Next.js route handler (GET)
+	"Next Route Handler (GET)": {
+		"prefix": "node-route-get",
+		"scope": "javascript,typescript",
+		"body": [
+			"import { NextResponse } from \"next/server\";",
+			"",
+			"export async function GET(request: Request) {",
+			"  ${1:// handle request}",
+			"  return NextResponse.json({ ${2:data}: ${3:null} });",
+			"}"
+		],
+		"description": "Next.js App Router GET route handler"
+	},
+	// node-route-post — Next.js route handler (POST)
+	"Next Route Handler (POST)": {
+		"prefix": "node-route-post",
+		"scope": "javascript,typescript",
+		"body": [
+			"import { NextResponse } from \"next/server\";",
+			"",
+			"export async function POST(request: Request) {",
+			"  const body = await request.json();",
+			"  ${1:// handle body}",
+			"  return NextResponse.json({ ${2:data}: body }, { status: 201 });",
+			"}"
+		],
+		"description": "Next.js App Router POST route handler"
+	},
+	// node-action — Next.js server action
+	"Next Server Action": {
+		"prefix": "node-action",
+		"scope": "javascript,typescript",
+		"body": [
+			"\"use server\";",
+			"",
+			"export async function ${1:actionName}(formData: FormData) {",
+			"  const ${2:value} = formData.get(\"${3:field}\");",
+			"  ${0}",
+			"}"
+		],
+		"description": "Next.js server action reading FormData"
+	},
+	// node-middleware — Next.js middleware
+	"Next Middleware": {
+		"prefix": "node-middleware",
+		"scope": "javascript,typescript",
+		"body": [
+			"import { NextResponse } from \"next/server\";",
+			"import type { NextRequest } from \"next/server\";",
+			"",
+			"export function middleware(request: NextRequest) {",
+			"  ${1:// inspect or rewrite}",
+			"  return NextResponse.next();",
+			"}",
+			"",
+			"export const config = {",
+			"  matcher: [\"${2:/protected/:path*}\"],",
+			"};"
+		],
+		"description": "Next.js middleware with a matcher config"
+	},
+	// node-env — typed env access
+	"Read Env Variable": {
+		"prefix": "node-env",
+		"scope": "javascript,typescript",
+		"body": [
+			"const ${1:value} = process.env.${2:KEY};",
+			"if (!${1:value}) {",
+			"  throw new Error(\"Missing env var: ${2:KEY}\");",
+			"}"
+		],
+		"description": "Read a required environment variable with a guard"
+	},
+	// node-async — async handler with try/catch
+	"Async Handler (try/catch)": {
+		"prefix": "node-async",
+		"scope": "javascript,typescript",
+		"body": [
+			"export async function ${1:handler}(${2:args}) {",
+			"  try {",
+			"    ${3:// work}",
+			"  } catch (error) {",
+			"    console.error(\"${1:handler} failed:\", error);",
+			"    throw error;",
+			"  }",
+			"}"
+		],
+		"description": "Async function wrapped in try/catch"
+	},
+	// node-script — runnable async entrypoint
+	"Async Entrypoint": {
+		"prefix": "node-script",
+		"scope": "javascript,typescript",
+		"body": [
+			"async function main() {",
+			"  ${0}",
+			"}",
+			"",
+			"main().catch((error) => {",
+			"  console.error(error);",
+			"  process.exit(1);",
+			"});"
+		],
+		"description": "Self-invoking async main with error exit"
+	}
+}
