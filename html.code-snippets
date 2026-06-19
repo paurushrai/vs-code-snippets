@@ -1,198 +1,168 @@
 {
-	// ===================================================
-	// ---- [ 1 ] Slice Structure ---- *TAKEN FROM PROJECT
-	// ===================================================
-	"basic slice structure": {
-		"prefix": "html-slice-starter",
+	// html-doc — HTML5 document boilerplate
+	"HTML5 Document": {
+		"prefix": "html-doc",
+		"body": [
+			"<!DOCTYPE html>",
+			"<html lang=\"${1:en}\">",
+			"<head>",
+			"  <meta charset=\"UTF-8\" />",
+			"  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />",
+			"  <title>${2:Document}</title>",
+			"  <link rel=\"stylesheet\" href=\"${3:styles.css}\" />",
+			"</head>",
+			"<body>",
+			"  ${0}",
+			"  <script src=\"${4:script.js}\"></script>",
+			"</body>",
+			"</html>"
+		],
+		"description": "Full HTML5 document boilerplate"
+	},
+	// html-section — nested container/content wrapper
+	"Section Wrapper": {
+		"prefix": "html-section",
 		"body": [
 			"<div class=\"container\">",
 			"  <div class=\"inner-container\">",
 			"    <div class=\"content\">",
 			"      <div class=\"content-block\">",
-			"        ${1:Start here}",
+			"        ${0}",
 			"      </div>",
 			"    </div>",
 			"  </div>",
 			"</div>"
 		],
-		"description": "basic slice structure"
+		"description": "Nested container/content section wrapper"
 	},
-	// =====================================================
-	// ---- [ 2 ] Basic SEO Starter ---- *TAKEN FROM PROJECT
-	// =====================================================
-	"basic seo starter": {
-		"prefix": "seo-basic-starter",
+	// html-head — stylesheet, script, fonts, analytics includes
+	"Head Includes": {
+		"prefix": "html-head",
 		"body": [
-			"<title>${1:WEBSITE NAME}</title>",
-			"<link rel=\"icon\" type=\"image/x-icon\" href=\"${2:LOGO LINK}\" />",
-			"<link rel=\"canonical\" href=\"${3:WEBSITE LINK}\" />",
+			"<!-- CSS files -->",
+			"<link rel=\"stylesheet\" type=\"text/css\" href=\"${1:styles.css}\" />",
+			"",
+			"<!-- script files -->",
+			"<script src=\"${2:script.js}\" defer></script>",
+			"",
+			"<!-- google fonts -->",
+			"<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />",
+			"<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />",
+			"<link href=\"https://fonts.googleapis.com/css2?family=${3:Work+Sans}:wght@${4:300;400;600;700}&display=swap\" rel=\"stylesheet\" />",
+			"",
+			"<!-- Google tag (gtag.js) -->",
+			"<script async src=\"https://www.googletagmanager.com/gtag/js?id=${5:G-XXXXXXXXXX}\"></script>"
+		],
+		"description": "Stylesheet, script, fonts and analytics includes"
+	},
+	// html-seo-basic — title, favicon, canonical
+	"SEO Basic": {
+		"prefix": "html-seo-basic",
+		"body": [
+			"<title>${1:Website Name}</title>",
+			"<link rel=\"icon\" type=\"image/x-icon\" href=\"${2:/favicon.ico}\" />",
+			"<link rel=\"canonical\" href=\"${3:https://example.com}\" />",
 			"<meta charset=\"UTF-8\" />"
 		],
-		"description": "basic seo starter"
+		"description": "Title, favicon, canonical and charset"
 	},
-	// =============================================================================================================
-	// ---- [ 3 ] Genersl SEO ---- *TAKEN FROM PROJECT - did edits, removed site specific content to make it generic
-	// =============================================================================================================
-	"general seo starter": {
-		"prefix": "seo-general-starter",
+	// html-seo-meta — general SEO meta tags
+	"SEO Meta": {
+		"prefix": "html-seo-meta",
 		"body": [
-			"<meta name=\"theme-color\" content=\"#000000\" />",
+			"<meta name=\"theme-color\" content=\"${1:#000000}\" />",
 			"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />",
-			"<meta",
-			"name=\"description\"",
-			"content=\"${1:BRAND DESCRIPTION}\"/>",
-			"<meta",
-			"name=\"keywords\"",
-			"content=\"${2:KEYWORDS}\"/>",
-			"<meta name=\"author\" content=\"${3:BRAND NAME}\" />",
-			"<meta",
-			"name=\"subject\"",
-			"content=\"${4:BRAND SUBJECT}\"/>",
-			"<meta name=\"copyright\" content=\"${3:BRAND NAME}\" />",
-			"<meta name=\"Classification\" content=\"${5:COMPANY TYPE}\" />"
+			"<meta name=\"description\" content=\"${2:Brand description}\" />",
+			"<meta name=\"keywords\" content=\"${3:keywords}\" />",
+			"<meta name=\"author\" content=\"${4:Brand name}\" />",
+			"<meta name=\"copyright\" content=\"${4:Brand name}\" />"
 		],
-		"description": "general seo starter"
+		"description": "General SEO meta tags"
 	},
-	// ===========================================================================================================
-	// ---- [ 4 ] SEO Graph ---- *TAKEN FROM PROJECT - did edits, removed site specific content to make it generic
-	// ===========================================================================================================
-	"graph seo starter": {
-		"prefix": "seo-graph-starter",
+	// html-seo-og — Open Graph tags
+	"SEO Open Graph": {
+		"prefix": "html-seo-og",
 		"body": [
-			"<meta property=\"og:title\" content=\"${1:BRAND NAME}\" />",
+			"<meta property=\"og:title\" content=\"${1:Brand name}\" />",
 			"<meta property=\"og:type\" content=\"website\" />",
-			"<meta property=\"og:image\" content=\"${2:IMAGE LINK}\" />",
-			"<meta property=\"og:image:alt\" content=\"${3:IMAGE ALT TEXT}\" />",
-			"<meta",
-			"  property=\"og:description\"",
-			"  content=\"${4:BRAND DESCRIPTION}\"",
-			"/>",
-			"<meta property=\"og:site_name\" content=\"${5:WEBSITE NAME\" />",
-			""
+			"<meta property=\"og:url\" content=\"${2:https://example.com}\" />",
+			"<meta property=\"og:image\" content=\"${3:https://example.com/og-image.png}\" />",
+			"<meta property=\"og:image:alt\" content=\"${4:Image alt text}\" />",
+			"<meta property=\"og:description\" content=\"${5:Brand description}\" />",
+			"<meta property=\"og:site_name\" content=\"${6:Website name}\" />"
 		],
-		"description": "graph seo starter"
+		"description": "Open Graph meta tags for social sharing"
 	},
-	// ====================================================
-	// ---- [ 5 ] Resource Include ---- *TAKEN FROM PROJECT
-	// ====================================================
-	"html files and fonts include": {
-		"prefix": "html-include-starter",
+	// html-seo-twitter — Twitter card tags
+	"SEO Twitter Card": {
+		"prefix": "html-seo-twitter",
 		"body": [
-			"  <!-- CSS files -->",
-			"  <link rel=\"stylesheet\" type=\"text/css\" href=\"${1:CSS FILE ADDRESS}\">",
-			"",
-			"  <!-- script files -->",
-			"  <script src=\"$2:{JS FILE ADDRESS}\"></script>",
-			"",
-			"  <!-- google fonts -->",
-			"  ${3:<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />",
-			"  <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />",
-			"  <link",
-			"    href=\"https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700;800;900&display=swap\"",
-			"    rel=\"stylesheet\" />}",
-			"",
-			"  <!-- Google tag (gtag.js) -->",
-			"  ${4:<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-6SSWGRHDPD\"></script>}",
-			"",
-			"  <!-- font awesome -->",
-			"  ${5:<script src=\"https://kit.fontawesome.com/707240b3b6.js\" crossorigin=\"anonymous\"></script>}"
+			"<!-- Twitter Card: https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards -->",
+			"<meta name=\"twitter:card\" content=\"${1:summary_large_image}\" />",
+			"<meta name=\"twitter:site\" content=\"${2:@handle}\" />",
+			"<meta name=\"twitter:creator\" content=\"${2:@handle}\" />",
+			"<meta name=\"twitter:title\" content=\"${3:Page title}\" />",
+			"<meta name=\"twitter:description\" content=\"${4:Page description}\" />",
+			"<meta name=\"twitter:image\" content=\"${5:https://example.com/card.png}\" />",
+			"<meta name=\"twitter:image:alt\" content=\"${6:Image alt text}\" />"
 		],
-		"description": "html files and fonts include"
+		"description": "Twitter card meta tags"
 	},
-	// ========================================================
-	// ---- [ 6 ] SEO Instruction Sets ---- *TAKEN FROM PROJECT
-	// ========================================================
-	"SEO Instruction Sets": {
-		"prefix": "seo-instructions-set-starter",
+	// html-seo-robots — crawler and caching instructions
+	"SEO Robots": {
+		"prefix": "html-seo-robots",
 		"body": [
 			"<meta name=\"robots\" content=\"index,follow\" />",
 			"<meta http-equiv=\"Expires\" content=\"0\" />",
 			"<meta http-equiv=\"Pragma\" content=\"no-cache\" />",
 			"<meta http-equiv=\"Cache-Control\" content=\"no-cache\" />",
-			"<meta http-equiv=\"imagetoolbar\" content=\"no\" />",
 			"<meta http-equiv=\"x-dns-prefetch-control\" content=\"off\" />"
 		],
-		"description": "Instruction Sets"
+		"description": "Crawler and caching instruction meta tags"
 	},
-	// ====================================================
-	// ---- [ 7 ] SEO Twitter Card ---- *TAKEN FROM PROJECT
-	// ====================================================
-	"SEO Twitter Card": {
-		"prefix": "seo-twitter-card-starter",
+	// html-css — link a stylesheet
+	"Link CSS": {
+		"prefix": "html-css",
 		"body": [
-			"<!-- Twitter Card data https://dev.twitter.com/cards/overview -->",
-			"<meta",
-			"  name=\"twitter:card\"",
-			"  content=\"${1:Does Your Go-To-Market Strategy Require Some Assembly?}\"",
-			"/>",
-			"<meta name=\"twitter:site\" content=\"${2:@gtmadvisors}\" />",
-			"<meta name=\"twitter:title\" content=\"${3:GTM Advisors}\" />",
-			"<meta",
-			"  name=\"twitter:description\"",
-			"  content=\"${4:Go To Market Advisors is a collective of highly seasoned revenue, sales, customer service, and leadership consultants.}\"",
-			"/>",
-			"<meta name=\"twitter:creator\" content=\"${2:@gtmadvisors}\" />",
-			"<meta name=\"twitter:image\" content=\"${5:/images/organe_car.png}\" />",
-			"<meta name=\"twitter:image:alt\" content=\"${6:GTM Advisors Assemble a Strategy}\" />",
-			""
+			"<link rel=\"stylesheet\" type=\"text/css\" href=\"${1:styles.css}\" />"
 		],
-		"description": "SEO Twitter Card"
+		"description": "Link a stylesheet"
 	},
-	// =================================================
-	// ---- [ 8 ] Link CSS File ---- *TAKEN FROM PROJECT
-	// =================================================
-	"Link CSS File": {
-		"prefix": "html-link-css",
+	// html-js — link a script
+	"Link JS": {
+		"prefix": "html-js",
 		"body": [
-			"<link rel=\"stylesheet\" type=\"text/css\" href=\"${1:mystyle.css}\">"
+			"<script type=\"text/javascript\" src=\"${1:script.js}\" defer></script>"
 		],
-		"description": "Link CSS File"
+		"description": "Link a script file"
 	},
-	// ================================================
-	// ---- [ 9 ] Link JS File ---- *TAKEN FROM PROJECT
-	// ================================================
-	"Link JS File": {
-		"prefix": "html-link-js",
-		"body": [
-			"<script type=\"text/javascript\" src=\"${1:jquery-3.3.1.js}\"></script>"
-		],
-		"description": "Link JS File"
-	},
-	// =================================================
-	// ---- [ 10 ] Ordered List ---- *TAKEN FROM PROJECT
-	// =================================================
+	// html-ol — ordered list
 	"Ordered List": {
-		"prefix": "html-ol-list",
+		"prefix": "html-ol",
 		"body": [
 			"<ol>",
-			"  <li>${1:Coffee}</li>",
-			"  <li>${2:Tea}</li>",
-			"  <li>${3:Milk}</li>",
-			"</ol>",
-			""
+			"  <li>${1:Item one}</li>",
+			"  <li>${2:Item two}</li>",
+			"  <li>${3:Item three}</li>",
+			"</ol>"
 		],
-		"description": "Ordered List"
+		"description": "Ordered list"
 	},
-	// ===================================================
-	// ---- [ 11 ] Unordered List ---- *TAKEN FROM PROJECT
-	// ===================================================
+	// html-ul — unordered list
 	"Unordered List": {
-		"prefix": "html-ul-list",
+		"prefix": "html-ul",
 		"body": [
 			"<ul>",
-			"  <li>${1:Coffee}</li>",
-			"  <li>${2:Tea}</li>",
-			"  <li>${3:Milk}</li>",
-			"</ul>",
-			""
+			"  <li>${1:Item one}</li>",
+			"  <li>${2:Item two}</li>",
+			"  <li>${3:Item three}</li>",
+			"</ul>"
 		],
-		"description": "Unordered List"
+		"description": "Unordered list"
 	},
-	// ===================================================
-	// ---- [ 12 ] Navigation Bar ---- *TAKEN FROM PROJECT
-	// ===================================================
+	// html-nav — navigation bar
 	"Navigation Bar": {
-		"prefix": "html-navbar",
+		"prefix": "html-nav",
 		"body": [
 			"<nav>",
 			"  <ul class=\"navbar\">",
@@ -203,47 +173,104 @@
 			"  </ul>",
 			"</nav>"
 		],
-		"description": "Navigation Bar"
+		"description": "Navigation bar with anchor links"
 	},
-	// ===========================================
-	// ---- [ 13 ] Button ---- *TAKEN FROM PROJECT
-	// ===========================================
-	"button HTML": {
+	// html-button — anchor styled as a button
+	"Button Link": {
 		"prefix": "html-button",
 		"body": [
 			"<span class=\"${1:btn-container}\">",
-			"  <a class=\"${2:button light-btn}\" href=\"${3:/what-we-think/}\">${4:Read More}</a>",
+			"  <a class=\"${2:button}\" href=\"${3:/path}\">${4:Read More}</a>",
 			"</span>"
 		],
-		"description": "button HTML"
+		"description": "Anchor styled as a button"
 	},
-	// =========================================
-	// ---- [ 14 ] Image tag with container ----
-	// =========================================
-	"image tag with container": {
-		"prefix": "html-image-container",
+	// html-form — form with labelled input
+	"Form": {
+		"prefix": "html-form",
 		"body": [
-			"<span class=\"${1:image-container}\">",
-			"  <img src=\"${2:example}\" alt=\"${3:example}\" width=\"${4:example}\" height=\"${5:example}\" title=\"${6:example}\" class=\"${7:example}\">",
-			"</span>"
+			"<form action=\"${1:/submit}\" method=\"${2:post}\">",
+			"  <label for=\"${3:name}\">${4:Name}</label>",
+			"  <input type=\"${5:text}\" id=\"${3:name}\" name=\"${3:name}\" required />",
+			"  <button type=\"submit\">${6:Submit}</button>",
+			"</form>"
 		],
-		"description": "image with container"
+		"description": "Form with a labelled input and submit button"
 	},
-	// ==========================================
-	// ---- [ 15 ] Image tag with attributes ----
-	// ==========================================
-	"image tag with attributes": {
-		"prefix": "html-image",
+	// html-input — labelled input
+	"Input (labelled)": {
+		"prefix": "html-input",
 		"body": [
-			"<img src=\"${1:example}\" alt=\"${2:example}\" width=\"${3:example}\" height=\"${4:example}\" title=\"${5:example}\" class=\"${6:example}\""
+			"<label for=\"${1:id}\">${2:Label}</label>",
+			"<input type=\"${3:text}\" id=\"${1:id}\" name=\"${1:id}\" placeholder=\"${4:placeholder}\" />"
 		],
-		"description": "image tag with attributes"
+		"description": "Labelled input field"
 	},
-	// ===================================
-	// ---- [ 16 ] Two Content Blocks ----
-	// ===================================
-	"Two Content Blocks": {
-		"prefix": "html-2blocks",
+	// html-table — table with header and body
+	"Table": {
+		"prefix": "html-table",
+		"body": [
+			"<table>",
+			"  <thead>",
+			"    <tr>",
+			"      <th>${1:Column 1}</th>",
+			"      <th>${2:Column 2}</th>",
+			"    </tr>",
+			"  </thead>",
+			"  <tbody>",
+			"    <tr>",
+			"      <td>${3:Cell 1}</td>",
+			"      <td>${4:Cell 2}</td>",
+			"    </tr>",
+			"  </tbody>",
+			"</table>"
+		],
+		"description": "Table with header and body rows"
+	},
+	// html-img — image tag
+	"Image": {
+		"prefix": "html-img",
+		"body": [
+			"<img src=\"${1:image.jpg}\" alt=\"${2:description}\" width=\"${3:800}\" height=\"${4:600}\" loading=\"lazy\" />"
+		],
+		"description": "Image tag with common attributes"
+	},
+	// html-figure — image with caption
+	"Figure": {
+		"prefix": "html-figure",
+		"body": [
+			"<figure>",
+			"  <img src=\"${1:image.jpg}\" alt=\"${2:description}\" loading=\"lazy\" />",
+			"  <figcaption>${3:Caption}</figcaption>",
+			"</figure>"
+		],
+		"description": "Figure with an image and caption"
+	},
+	// html-picture — responsive picture with WebP source
+	"Picture (responsive)": {
+		"prefix": "html-picture",
+		"body": [
+			"<picture>",
+			"  <source srcset=\"${1:image.webp}\" type=\"image/webp\" />",
+			"  <img src=\"${2:image.jpg}\" alt=\"${3:description}\" loading=\"lazy\" />",
+			"</picture>"
+		],
+		"description": "Responsive picture with a WebP source"
+	},
+	// html-video — video with source
+	"Video": {
+		"prefix": "html-video",
+		"body": [
+			"<video width=\"${1:640}\" height=\"${2:360}\" controls>",
+			"  <source src=\"${3:video.mp4}\" type=\"video/mp4\" />",
+			"  Your browser does not support the video tag.",
+			"</video>"
+		],
+		"description": "Video element with a source"
+	},
+	// html-cols — two side-by-side blocks
+	"Two Columns": {
+		"prefix": "html-cols",
 		"body": [
 			"<div class=\"block-1\">",
 			"  ${1:}",
@@ -252,30 +279,37 @@
 			"  ${2:}",
 			"</div>"
 		],
-		"description": "Two Content Blocks"
+		"description": "Two side-by-side content blocks"
 	},
-	// ==============================
-	// ---- [ 17 ] Link to Email ----
-	// ==============================
+	// html-mail — mailto link
 	"Email Link": {
-		"prefix": "html-email-link",
+		"prefix": "html-mail",
 		"body": [
-			"<a href=\"mailto:paurushrai99@gmail.com\">Email</a>"
+			"<a href=\"mailto:${1:hello@example.com}\">${2:Email}</a>"
 		],
-		"description": "Email Link"
+		"description": "Mailto link"
 	},
-	// ==============================
-	// ---- [ 17 ] Link to Email ----
-	// ==============================
-	"Dropdown ": {
-		"prefix": "html-dropdown",
+	// html-select — dropdown
+	"Select Dropdown": {
+		"prefix": "html-select",
 		"body": [
 			"<select id=\"${1:dropdown}\">",
-			"    <option value=\"${2:defaultOption}\" selected>${3:Default Option}</option><!-- Default selected option -->",
-			"    <option value=\"${4:option1}\">${5:Option1}</option>",
-			"    <option value=\"${6:option2}\">${7:Option2}</option>",
+			"  <option value=\"${2:default}\" selected>${3:Default Option}</option>",
+			"  <option value=\"${4:option1}\">${5:Option 1}</option>",
+			"  <option value=\"${6:option2}\">${7:Option 2}</option>",
 			"</select>"
 		],
-		"description": "Dropdown "
+		"description": "Select dropdown with options"
+	},
+	// html-details — native disclosure/accordion
+	"Details (accordion)": {
+		"prefix": "html-details",
+		"body": [
+			"<details>",
+			"  <summary>${1:Summary}</summary>",
+			"  ${2:Hidden content}",
+			"</details>"
+		],
+		"description": "Native disclosure/accordion element"
 	}
 }
