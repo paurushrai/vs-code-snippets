@@ -1,0 +1,36 @@
+{
+	// zod-schema — object schema
+	"Zod Schema": {
+		"prefix": "zod-schema",
+		"scope": "javascript,typescript,javascriptreact,typescriptreact",
+		"body": [
+			"const ${1:name}Schema = z.object({",
+			"  ${2:id}: z.${3:string}(),",
+			"  ${4:name}: z.${5:string}().min(1),",
+			"});"
+		],
+		"description": "Zod object schema"
+	},
+	// zod-infer — inferred type
+	"Zod Inferred Type": {
+		"prefix": "zod-infer",
+		"scope": "typescript,typescriptreact",
+		"body": [
+			"type ${1:Name} = z.infer<typeof ${2:name}Schema>;"
+		],
+		"description": "Infer a TypeScript type from a Zod schema"
+	},
+	// zod-parse — safe parse
+	"Zod Safe Parse": {
+		"prefix": "zod-parse",
+		"scope": "javascript,typescript,javascriptreact,typescriptreact",
+		"body": [
+			"const ${1:result} = ${2:name}Schema.safeParse(${3:input});",
+			"if (!${1:result}.success) {",
+			"  ${4:throw new Error(${1:result}.error.message);}",
+			"}",
+			"const ${5:data} = ${1:result}.data;"
+		],
+		"description": "Safely parse and validate external input"
+	}
+}
