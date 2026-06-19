@@ -1,0 +1,75 @@
+{
+	// py-main — entrypoint guard
+	"Main Guard": {
+		"prefix": "py-main",
+		"scope": "python",
+		"body": [
+			"def main() -> None:",
+			"    ${0:pass}",
+			"",
+			"",
+			"if __name__ == \"__main__\":",
+			"    main()"
+		],
+		"description": "Script entrypoint with __main__ guard"
+	},
+	// py-fn — typed function
+	"Function": {
+		"prefix": "py-fn",
+		"scope": "python",
+		"body": [
+			"def ${1:fn_name}(${2:param}: ${3:str}) -> ${4:None}:",
+			"    ${5:\"\"\"${6:Summary.}\"\"\"}",
+			"    ${0:pass}"
+		],
+		"description": "Typed function with a docstring"
+	},
+	// py-async — async function
+	"Async Function": {
+		"prefix": "py-afn",
+		"scope": "python",
+		"body": [
+			"async def ${1:fn_name}(${2:param}: ${3:str}) -> ${4:None}:",
+			"    ${0:pass}"
+		],
+		"description": "Async function"
+	},
+	// py-dataclass
+	"Dataclass": {
+		"prefix": "py-dataclass",
+		"scope": "python",
+		"body": [
+			"@dataclass",
+			"class ${1:Name}:",
+			"    ${2:field}: ${3:str}",
+			"    ${4:count}: ${5:int} = ${6:0}"
+		],
+		"description": "Dataclass with typed fields"
+	},
+	// py-fastapi — FastAPI route
+	"FastAPI Route": {
+		"prefix": "py-fastapi",
+		"scope": "python",
+		"body": [
+			"@router.${1:get}(\"${2:/items/{item_id}}\")",
+			"async def ${3:read_item}(${4:item_id}: ${5:int}) -> ${6:dict}:",
+			"    ${0:return {\"id\": ${4:item_id}}}"
+		],
+		"description": "FastAPI path operation"
+	},
+	// py-pytest — test function
+	"Pytest Test": {
+		"prefix": "py-pytest",
+		"scope": "python",
+		"body": [
+			"def test_${1:behaviour}_when_${2:condition}() -> None:",
+			"    # arrange",
+			"    ${3:pass}",
+			"    # act",
+			"    ${4:pass}",
+			"    # assert",
+			"    assert ${5:actual} == ${6:expected}"
+		],
+		"description": "Pytest test with arrange/act/assert"
+	}
+}
