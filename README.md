@@ -34,16 +34,27 @@ After typing a trigger, press <kbd>Tab</kbd> to jump between the placeholders.
 
 > **Tailwind note:** `tw-*` snippets expand to bare class strings (e.g. `flex items-center justify-center`) so they drop into any `class`/`className`/`@apply`. Inside a `class="..."` attribute you may need <kbd>Ctrl</kbd>+<kbd>Space</kbd> to surface them past Tailwind IntelliSense.
 
-## Usage
+## Install & sync
 
-These are global (user-level) snippet files, so they work in every project:
+These are global (user-level) snippet files, so they work in every project. Rather than
+copying files into each editor, this repo is cloned **once** and symlinked into every
+editor's snippet folder — so one `git pull` updates VS Code, Antigravity, and any other
+VS Code-based IDE at the same time.
 
-1. Open the Command Palette (<kbd>Cmd/Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) and run **`Snippets: Configure Snippets`** → **New Global Snippets file** (or open the folder directly):
-   - **macOS:** `~/Library/Application Support/Code/User/snippets/`
-   - **Linux:** `~/.config/Code/User/snippets/`
-   - **Windows:** `%APPDATA%\Code\User\snippets\`
-2. Copy the `.code-snippets` files you want into that folder.
-3. Start typing a trigger and accept the IntelliSense suggestion.
+```bash
+# Clone once to a neutral location
+git clone https://github.com/paurushrai/vs-code-snippets ~/Developer/personal/vs-code-snippets
+REPO=~/Developer/personal/vs-code-snippets
+
+# Symlink it into each editor (quit the editor first). macOS example:
+rm -rf ~/Library/Application\ Support/Code/User/snippets
+ln -s "$REPO" ~/Library/Application\ Support/Code/User/snippets
+```
+
+Then start typing a trigger and accept the IntelliSense suggestion.
+
+📖 **Full instructions — fresh-machine setup, every editor's folder path, adding a new IDE,
+moving the clone, and troubleshooting — are in [SETUP.md](SETUP.md).**
 
 > Some scopes (`prisma`, `dockercompose`) require the matching language extension to be installed for the snippet to activate in those files.
 
