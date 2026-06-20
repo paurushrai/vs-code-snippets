@@ -421,9 +421,13 @@ moving the clone, and troubleshooting — are in [SETUP.md](SETUP.md).**
 </details>
 
 
-## Contributing
+## Using this repo
 
-Issues and pull requests are welcome. New snippets must follow the `<lang>-<name>` rule above, and language-specific families should set `scope`. The [snippet-generator.app](https://snippet-generator.app/) tool helps produce the JSON body.
+This is a personal snippet library shared publicly as-is — it isn't seeking contributions.
+Use it however helps: clone and symlink it (see [SETUP.md](SETUP.md)), or **fork it** and make
+it your own. New snippets follow the `<lang>-<name>` rule above, with language-specific
+families setting `scope`; the [snippet-generator.app](https://snippet-generator.app/) tool
+helps produce the JSON body.
 
 ## License
 
